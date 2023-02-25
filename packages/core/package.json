@@ -1,0 +1,34 @@
+{
+  "name": "@web-analytics/core",
+  "version": "0.1.0",
+  "description": "Website pageviews analytics tool.",
+  "author": "chengpeiquan <chengpeiquan@chengpeiquan.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/analyticsjs/web-analytics/tree/main/packages/core",
+  "files": [
+    "lib",
+    "types"
+  ],
+  "main": "./lib/index.min.js",
+  "module": "./lib/index.mjs",
+  "types": "./types/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./lib/index.mjs",
+      "require": "./lib/index.cjs",
+      "types": "./types/index.d.js"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/analyticsjs/web-analytics.git"
+  },
+  "keywords": [
+    "utils",
+    "analytics",
+    "pageviews"
+  ],
+  "dependencies": {
+    "@bassist/utils": "^0.11.0"
+  }
+}
