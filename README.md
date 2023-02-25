@@ -1,10 +1,6 @@
-# Bassist
+# web-analytics
 
-I play bass, hence the name.
-
-<p align='center'>
-  <img width="500" src="./assets/bassist.svg" alt="Bassist" />
-</p>
+Website pageviews analytics tools.
 
 ## License
 
