@@ -6,11 +6,12 @@ import {
 import type {
   CreateAnalyticsInstanceOptions,
   SupportedAnalyticsPlatforms,
+  PlatformInstance,
 } from './types'
 
 export class Analytics {
   platform: SupportedAnalyticsPlatforms
-  platformInstance: any
+  platformInstance: PlatformInstance | undefined
   sdkUrl = ''
   websiteId = ''
   debug: boolean
@@ -80,7 +81,13 @@ export class Analytics {
     }
   }
 
-  setAccount() {}
+  /**
+   * Provide multi-account switching for upper-level plugins
+   */
+  setAccount() {
+    if (!this.platformInstance) return
+    this.platformInstance.push(['_setAccount', this.websiteId])
+  }
 
   trackPageview() {}
 
