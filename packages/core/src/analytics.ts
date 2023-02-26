@@ -1,4 +1,4 @@
-import { loadRes } from '@bassist/utils'
+import { loadRes, pascalCase } from '@bassist/utils'
 import { BaseAnalytics } from './base'
 import { debug } from './decorators'
 import type { CreateAnalyticsInstanceOptions } from './types'
@@ -16,7 +16,12 @@ export class Analytics extends BaseAnalytics {
   /**
    * Load the platform's JS-SDK file
    */
-  @debug((ins) => `Analytics JS-SDK load done.\nwebsiteId:    ${ins.websiteId}`)
+  @debug((ins) =>
+    [
+      `${pascalCase(ins.platform)} Analytics JS-SDK load done.`,
+      `websiteId:    ${ins.websiteId}`,
+    ].join('\n')
+  )
   async init() {
     if (!this.platformInstance || !this.sdkUrl) return
 
