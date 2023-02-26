@@ -4,8 +4,6 @@ import { debug } from './decorators'
 import type { CreateAnalyticsInstanceOptions } from './types'
 
 export class Analytics extends BaseAnalytics {
-  debug: any
-
   constructor({
     pluginId,
     platform,
@@ -13,7 +11,6 @@ export class Analytics extends BaseAnalytics {
     debug,
   }: CreateAnalyticsInstanceOptions) {
     super({ pluginId, platform, websiteId, debug })
-    this.debug = debug
   }
 
   /**
@@ -37,15 +34,12 @@ export class Analytics extends BaseAnalytics {
   /**
    * Provide multi-account switching for upper-level plugins
    */
-  @debug('Hello setAccount')
   setAccount() {
     if (!this.platformInstance) return
     this.platformInstance.push(['_setAccount', this.websiteId])
   }
 
-  @debug('Hello trackPageview')
   trackPageview() {}
 
-  @debug('Hello trackEvent')
   trackEvent() {}
 }
