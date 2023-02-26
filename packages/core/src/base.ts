@@ -1,8 +1,5 @@
 import { isBrowser } from '@bassist/utils'
-import {
-  PLUGIN_NAME_IN_ERROR_MESSAGE,
-  SUPPORTED_ANALYTICS_PLATFORMS,
-} from './constants'
+import { DEFAULT_PLUGIN_ID, SUPPORTED_ANALYTICS_PLATFORMS } from './constants'
 import type {
   CreateAnalyticsInstanceOptions,
   PlatformInstance,
@@ -10,7 +7,7 @@ import type {
 } from './types'
 
 export class BaseAnalytics {
-  pluginName: string
+  pluginId: string
   platform: SupportedAnalyticsPlatforms
   platformInstance: PlatformInstance | undefined
   sdkUrl = ''
@@ -18,12 +15,12 @@ export class BaseAnalytics {
   debug: boolean
 
   constructor({
-    pluginName,
+    pluginId,
     platform,
     websiteId,
     debug,
   }: CreateAnalyticsInstanceOptions) {
-    this.pluginName = pluginName || PLUGIN_NAME_IN_ERROR_MESSAGE
+    this.pluginId = pluginId || DEFAULT_PLUGIN_ID
     this.platform = platform
     this.websiteId = websiteId
     this.debug = typeof debug === 'boolean' ? debug : false
@@ -56,19 +53,19 @@ export class BaseAnalytics {
       default: {
         const platforms = SUPPORTED_ANALYTICS_PLATFORMS.join(', ')
         throw new Error(
-          `[${this.pluginName}] Unsupported platform options, only supported: ${platforms}.`
+          `[${this.pluginId}] Unsupported platform options, only supported: ${platforms}.`
         )
       }
     }
   }
 
   throwError(msg: string) {
-    throw new Error(`[${this.pluginName}] ${msg}`)
+    throw new Error(`[${this.pluginId}] ${msg}`)
   }
 
   printLogForDebug(msg: string) {
     if (this.debug) {
-      console.log(`[${this.pluginName}] ${msg}`)
+      console.log(`[${this.pluginId}] ${msg}`)
     }
   }
 }

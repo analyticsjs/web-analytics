@@ -1,4 +1,4 @@
-export const PLUGIN_NAME_IN_ERROR_MESSAGE = 'Analytics'
+export const DEFAULT_PLUGIN_ID = 'web-analytics-core'
 
 export const SUPPORTED_ANALYTICS_PLATFORMS = <const>[
   /**

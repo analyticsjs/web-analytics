@@ -4,10 +4,10 @@ export type SupportedAnalyticsPlatforms =
   (typeof SUPPORTED_ANALYTICS_PLATFORMS)[number]
 
 export interface CreateAnalyticsInstanceOptions {
-  pluginName?: string
+  pluginId?: string
   platform: SupportedAnalyticsPlatforms
-  debug: boolean
   websiteId: string
+  debug?: boolean
 }
 
 export interface PlatformInstance {
