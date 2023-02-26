@@ -10,7 +10,9 @@ export interface CreateAnalyticsInstanceOptions {
   debug?: boolean
 }
 
+type sdkAction = ['_setAccount', string] | ['_trackPageview', string]
+
 export interface PlatformInstance {
   // eslint-disable-next-line no-unused-vars
-  push: (opt: ['_setAccount', string]) => void
+  push: (opt: sdkAction) => void
 }
