@@ -1,4 +1,4 @@
-import { SUPPORTED_ANALYTICS_PLATFORMS } from './constants'
+import { SUPPORTED_ANALYTICS_PLATFORMS, SDK_ACTIONS } from './constants'
 
 export type SupportedAnalyticsPlatforms =
   (typeof SUPPORTED_ANALYTICS_PLATFORMS)[number]
@@ -10,9 +10,10 @@ export interface CreateAnalyticsInstanceOptions {
   debug?: boolean
 }
 
-type sdkAction = ['_setAccount', string] | ['_trackPageview', string]
+type sdkAction =
+  | [SDK_ACTIONS.setAccount, string]
+  | [SDK_ACTIONS.trackPageview, string]
 
 export interface PlatformInstance {
-  // eslint-disable-next-line no-unused-vars
   push: (opt: sdkAction) => void
 }

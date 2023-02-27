@@ -2,6 +2,7 @@ import { loadRes } from '@bassist/utils'
 import { BaseAnalytics } from './base'
 import { debug } from './decorators'
 import { formatPageUrl } from './utils'
+import { SDK_ACTIONS } from './constants'
 import type { CreateAnalyticsInstanceOptions } from './types'
 
 export class Analytics extends BaseAnalytics {
@@ -38,7 +39,7 @@ export class Analytics extends BaseAnalytics {
   @debug
   setAccount() {
     if (!this.platformInstance) return
-    this.platformInstance.push(['_setAccount', this.websiteId])
+    this.platformInstance.push([SDK_ACTIONS.setAccount, this.websiteId])
   }
 
   /**
@@ -48,7 +49,10 @@ export class Analytics extends BaseAnalytics {
   trackPageview(pageUrl: string) {
     if (!this.platformInstance) return
     this.setAccount()
-    this.platformInstance.push(['_trackPageview', formatPageUrl(pageUrl)])
+    this.platformInstance.push([
+      SDK_ACTIONS.trackPageview,
+      formatPageUrl(pageUrl),
+    ])
   }
 
   @debug
