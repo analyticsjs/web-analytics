@@ -17,4 +17,5 @@ export const SUPPORTED_ANALYTICS_PLATFORMS = <const>[
 export enum SDK_ACTIONS {
   setAccount = '_setAccount',
   trackPageview = '_trackPageview',
+  trackEvent = '_trackEvent',
 }

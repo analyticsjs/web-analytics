@@ -6,14 +6,34 @@ export type SupportedAnalyticsPlatforms =
 export interface CreateAnalyticsInstanceOptions {
   pluginId?: string
   platform: SupportedAnalyticsPlatforms
-  websiteId: string
+  websiteId: WebsiteId
   debug?: boolean
 }
 
-type sdkAction =
-  | [SDK_ACTIONS.setAccount, string]
-  | [SDK_ACTIONS.trackPageview, string]
+type WebsiteId = string
 
-export interface PlatformInstance {
-  push: (opt: sdkAction) => void
+type PageUrl = string
+
+type EventCategory = string
+
+type EventAction = string
+
+type EventLabel = string
+
+type EventValue = number
+
+type SdkAction =
+  | [SDK_ACTIONS.setAccount, WebsiteId]
+  | [SDK_ACTIONS.trackPageview, PageUrl]
+  | [SDK_ACTIONS.trackEvent, EventCategory, EventAction, EventLabel, EventValue]
+
+export interface SdkInstance {
+  push: (opt: SdkAction) => void
+}
+
+export interface TrackEventOptions {
+  category: EventCategory
+  action: EventAction
+  label: EventLabel
+  value: EventValue
 }

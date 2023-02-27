@@ -2,14 +2,14 @@ import { isBrowser } from '@bassist/utils'
 import { DEFAULT_PLUGIN_ID, SUPPORTED_ANALYTICS_PLATFORMS } from './constants'
 import type {
   CreateAnalyticsInstanceOptions,
-  PlatformInstance,
+  SdkInstance,
   SupportedAnalyticsPlatforms,
 } from './types'
 
 export class BaseAnalytics {
   pluginId: string
   platform: SupportedAnalyticsPlatforms
-  sdkInstance: PlatformInstance | undefined
+  sdkInstance: SdkInstance | undefined
   sdkUrl = ''
   websiteId = ''
   debug: boolean
@@ -33,6 +33,7 @@ export class BaseAnalytics {
   private updatePlatformInfo() {
     if (!isBrowser) {
       this.throwError('Plugin only works in the browser.')
+      return
     }
 
     switch (this.platform) {
@@ -61,11 +62,5 @@ export class BaseAnalytics {
 
   throwError(msg: string) {
     throw new Error(`[${this.pluginId}] ${msg}`)
-  }
-
-  printLogForDebug(msg: string) {
-    if (this.debug) {
-      console.log(`[${this.pluginId}] ${msg}`)
-    }
   }
 }
