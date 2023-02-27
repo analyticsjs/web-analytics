@@ -20,7 +20,7 @@ export class Analytics extends BaseAnalytics {
    */
   @debug
   async init() {
-    if (!this.platformInstance || !this.sdkUrl) return
+    if (!this.sdkInstance || !this.sdkUrl) return
 
     try {
       await loadRes({
@@ -38,8 +38,8 @@ export class Analytics extends BaseAnalytics {
    */
   @debug
   setAccount() {
-    if (!this.platformInstance) return
-    this.platformInstance.push([SDK_ACTIONS.setAccount, this.websiteId])
+    if (!this.sdkInstance) return
+    this.sdkInstance.push([SDK_ACTIONS.setAccount, this.websiteId])
   }
 
   /**
@@ -47,12 +47,9 @@ export class Analytics extends BaseAnalytics {
    */
   @debug
   trackPageview(pageUrl: string) {
-    if (!this.platformInstance) return
+    if (!this.sdkInstance) return
     this.setAccount()
-    this.platformInstance.push([
-      SDK_ACTIONS.trackPageview,
-      formatPageUrl(pageUrl),
-    ])
+    this.sdkInstance.push([SDK_ACTIONS.trackPageview, formatPageUrl(pageUrl)])
   }
 
   @debug

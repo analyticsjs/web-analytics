@@ -9,7 +9,7 @@ import type {
 export class BaseAnalytics {
   pluginId: string
   platform: SupportedAnalyticsPlatforms
-  platformInstance: PlatformInstance | undefined
+  sdkInstance: PlatformInstance | undefined
   sdkUrl = ''
   websiteId = ''
   debug: boolean
@@ -38,14 +38,14 @@ export class BaseAnalytics {
     switch (this.platform) {
       case 'baidu': {
         // @ts-ignore
-        this.platformInstance = window._hmt || []
+        this.sdkInstance = window._hmt || []
         this.sdkUrl = `https://hm.baidu.com/hm.js?${this.websiteId}`
         break
       }
 
       case 'cnzz': {
         // @ts-ignore
-        this.platformInstance = window._czc || []
+        this.sdkInstance = window._czc || []
         this.sdkUrl = `https://s9.cnzz.com/z_stat.php?id=${this.websiteId}&web_id=${this.websiteId}`
         break
       }
