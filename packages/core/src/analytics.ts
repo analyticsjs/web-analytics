@@ -59,7 +59,6 @@ export class Analytics extends BaseAnalytics {
   trackEvent({ category, action, label, value }: TrackEventOptions) {
     if (!this.sdkInstance) return
 
-    // 前两个是必填项
     if (
       typeof category !== 'string' ||
       typeof action !== 'string' ||

@@ -39,7 +39,12 @@ export function getDebugMessage({
     }
 
     case 'trackEvent': {
+      const { category, action, label, value } = args[0] || {}
       debugLogs.push(`track event done.`)
+      debugLogs.push(`category:     ${category}`)
+      debugLogs.push(`action:       ${action}`)
+      debugLogs.push(`label:        ${label}`)
+      debugLogs.push(`value:        ${value}`)
       break
     }
   }
