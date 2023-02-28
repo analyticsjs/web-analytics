@@ -36,7 +36,6 @@ export class Analytics extends BaseAnalytics {
   /**
    * Provide multi-account switching for upper-level plugins
    */
-  @debug
   setAccount() {
     if (!this.sdkInstance) return
     this.sdkInstance.push([SDK_ACTIONS.setAccount, this.websiteId])
