@@ -22,10 +22,20 @@ type EventLabel = string
 
 type EventValue = number
 
-type SdkAction =
+type EventNodeId = string
+
+export type SdkAction =
   | [SDK_ACTIONS.setAccount, WebsiteId]
   | [SDK_ACTIONS.trackPageview, PageUrl]
   | [SDK_ACTIONS.trackEvent, EventCategory, EventAction, EventLabel, EventValue]
+  | [
+      SDK_ACTIONS.trackEvent,
+      EventCategory,
+      EventAction,
+      EventLabel,
+      EventValue,
+      EventNodeId
+    ]
 
 export interface SdkInstance {
   push: (opt: SdkAction) => void
@@ -36,4 +46,5 @@ export interface TrackEventOptions {
   action: EventAction
   label: EventLabel
   value: EventValue
+  nodeId?: EventNodeId
 }

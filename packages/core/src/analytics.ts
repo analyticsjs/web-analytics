@@ -3,7 +3,11 @@ import { BaseAnalytics } from './base'
 import { debug } from './decorators'
 import { formatPageUrl } from './utils'
 import { SDK_ACTIONS } from './constants'
-import type { CreateAnalyticsInstanceOptions, TrackEventOptions } from './types'
+import type {
+  CreateAnalyticsInstanceOptions,
+  TrackEventOptions,
+  SdkAction,
+} from './types'
 
 export class Analytics extends BaseAnalytics {
   constructor({
@@ -55,7 +59,7 @@ export class Analytics extends BaseAnalytics {
    * Track event and report to the statistics platform
    */
   @debug
-  trackEvent({ category, action, label, value }: TrackEventOptions) {
+  trackEvent({ category, action, label, value, nodeId }: TrackEventOptions) {
     if (!this.sdkInstance) return
 
     if (
@@ -78,13 +82,23 @@ export class Analytics extends BaseAnalytics {
       value = 1
     }
 
-    this.setAccount()
-    this.sdkInstance.push([
+    if (!nodeId || typeof nodeId !== 'string') {
+      nodeId = ''
+    }
+
+    const currentAction: SdkAction = [
       SDK_ACTIONS.trackEvent,
       category,
       action,
       label,
       value,
-    ])
+    ]
+
+    if (this.platform === 'cnzz') {
+      currentAction.push(nodeId)
+    }
+
+    this.setAccount()
+    this.sdkInstance.push(currentAction)
   }
 }
