@@ -4,6 +4,7 @@ importers:
 
   .:
     specifiers:
+      '@bassist/node-utils': ^0.2.1
       '@bassist/utils': ^0.11.0
       '@types/node': ^18.11.18
       '@types/nprogress': ^0.2.0
@@ -28,6 +29,7 @@ importers:
     dependencies:
       '@bassist/utils': 0.11.0
     devDependencies:
+      '@bassist/node-utils': 0.2.1
       '@types/node': 18.14.1
       '@types/nprogress': 0.2.0
       '@typescript-eslint/eslint-plugin': 5.53.0_ny4s7qc6yg74faf3d6xty2ofzy
@@ -209,6 +211,12 @@ packages:
       '@babel/helper-string-parser': 7.19.4
       '@babel/helper-validator-identifier': 7.19.1
       to-fast-properties: 2.0.0
+    dev: true
+
+  /@bassist/node-utils/0.2.1:
+    resolution: {integrity: sha512-Hkel/gychuhm6bTAxHT6u4M5EdR0nBFcfKyCjV8/jW4lJHM2QMxBKtV1j6ajy5krdCf4IM3NVMDMCV92ZSnM5g==}
+    dependencies:
+      '@withtypes/fs-extra': 0.1.1
     dev: true
 
   /@bassist/utils/0.11.0:

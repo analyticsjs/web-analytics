@@ -1,6 +1,7 @@
 import { readdirSync, readJSONSync, writeFileSync } from '@withtypes/fs-extra'
 import { resolve } from 'path'
-import { hasKey } from '../packages/utils'
+import { hasKey } from '@bassist/utils'
+import { isPackage } from './utils'
 
 function getDeps(rootPath: string) {
   const pkg = readJSONSync(resolve(rootPath, './package.json'))
@@ -34,7 +35,9 @@ async function run() {
   const depTypes = ['dependencies', 'devDependencies', 'peerDependencies']
 
   // Read all packages info and sync deps versions
-  const packages = readdirSync(resolve(rootPath, './packages'))
+  const packages = readdirSync(resolve(rootPath, './packages')).filter((name) =>
+    isPackage(name)
+  )
   packages.forEach((name) => {
     const pkgFilePath = resolve(rootPath, `./packages/${name}/package.json`)
     const pkg = readJSONSync(pkgFilePath)

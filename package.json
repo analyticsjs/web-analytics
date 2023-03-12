@@ -29,6 +29,7 @@
     "@bassist/utils": "^0.11.0"
   },
   "devDependencies": {
+    "@bassist/node-utils": "^0.2.1",
     "@types/node": "^18.11.18",
     "@types/nprogress": "^0.2.0",
     "@typescript-eslint/eslint-plugin": "^5.49.0",

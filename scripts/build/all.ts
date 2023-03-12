@@ -1,11 +1,14 @@
 import { resolve } from 'path'
+import { readdirSync } from '@withtypes/fs-extra'
 import { buildLibrary } from './lib'
 import { buildTypes } from './dts'
-import { readdirSync } from '@withtypes/fs-extra'
+import { isPackage } from '../utils'
 
 async function run() {
   const rootPath = resolve(__dirname, `../../`)
-  const packages = readdirSync(resolve(rootPath, `./packages`))
+  const packages = readdirSync(resolve(rootPath, `./packages`)).filter((name) =>
+    isPackage(name)
+  )
   console.log(packages)
 
   for (let i = 0; i < packages.length; i++) {
