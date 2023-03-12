@@ -16,6 +16,7 @@
     "sync": "tsx scripts/sync",
     "test": "vitest",
     "coverage": "vitest run --coverage",
+    "preview": "vitepress preview",
     "lint": "eslint packages --ext .js,.ts,.jsx,.tsx,.vue",
     "format": "prettier --write packages",
     "mirror:get": "npm config get registry",
