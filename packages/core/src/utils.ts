@@ -60,7 +60,7 @@ export function getDebugMessage({
 /**
  * Different platforms may require different URL formats
  */
-export function formatPageUrl(pageUrl: string) {
+export function formatPageUrl(pageUrl: string | undefined) {
   if (!pageUrl || typeof pageUrl !== 'string') {
     pageUrl = '/'
   }

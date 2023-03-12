@@ -3,11 +3,14 @@
   "version": "0.0.0",
   "description": "Website pageviews analytics tools.",
   "author": "chengpeiquan <chengpeiquan@chengpeiquan.com>",
+  "homepage": "https://analytics.chengpeiquan.com",
   "license": "MIT",
   "private": true,
   "scripts": {
+    "dev": "vitepress --host",
     "build": "tsx scripts/build",
     "build:all": "tsx scripts/build/all",
+    "build:docs": "vitepress build",
     "release": "tsx scripts/release",
     "changelog": "tsx scripts/changelog",
     "sync": "tsx scripts/sync",
@@ -44,6 +47,7 @@
     "tsx": "^3.12.2",
     "vite": "^4.0.4",
     "vite-plugin-banner": "^0.7.0",
+    "vitepress": "1.0.0-alpha.52",
     "vitest": "^0.28.2"
   },
   "simple-git-hooks": {

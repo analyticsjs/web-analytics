@@ -49,7 +49,7 @@ export class Analytics extends BaseAnalytics {
    * Track pageview and report to the statistics platform
    */
   @debug
-  trackPageview(pageUrl: string) {
+  trackPageview(pageUrl?: string) {
     if (!this.sdkInstance) return
     this.setAccount()
     this.sdkInstance.push([SDK_ACTIONS.trackPageview, formatPageUrl(pageUrl)])

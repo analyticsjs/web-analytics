@@ -8,3 +8,4 @@ package-lock.json
 /packages/**/lib
 /packages/**/types
 coverage
+cache

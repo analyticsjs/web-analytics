@@ -1,0 +1,41 @@
+:root {
+  scroll-behavior: smooth;
+
+  --vp-c-brand: #f5aa35;
+  --vp-c-brand-light: #f9c97e;
+  --vp-c-brand-lighter: #f7b041;
+  --vp-c-brand-dark: #ed9307;
+  --vp-c-green-darker: #d68405;
+  --vp-home-hero-image-background-image: linear-gradient(
+    -45deg,
+    var(--vp-c-brand-dark) 50%,
+    var(--vp-c-brand-darker) 50%
+  );
+  --vp-home-hero-image-filter: blur(168px);
+}
+
+html {
+  overflow-x: hidden;
+}
+
+/* scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar:horizontal {
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb {
+  background: #323232;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3c3c3c;
+}
+
+.VPNavBar .container .title {
+  word-break: normal;
+}
