@@ -1,8 +1,8 @@
 <p align='center'>
-  <img src="./packages/public/logo.svg" alt="Web Analytics" />
+  <img width="300" src="./packages/public/logo.svg" alt="Web Analytics" />
 </p>
 
-<h1 align='center'>Web Analytics</h1>
+# Web Analytics
 
 Website pageviews analytics tools.
 
