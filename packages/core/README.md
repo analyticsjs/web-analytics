@@ -1,67 +1,48 @@
-# @bassist/utils
-
-<p>
-  <a href='https://www.npmjs.com/package/@bassist/utils'>
-    <img src="https://img.shields.io/npm/v/@bassist/utils?color=f43f5e&label=npm" />
-  </a>
-  <a href="https://www.npmjs.com/package/@bassist/utils" target="__blank">
-    <img src="https://img.shields.io/npm/dm/@bassist/utils?color=f43f5e&label=" />
-  </a>
-  <a href="https://paka.dev/npm/@bassist/utils" target="__blank">
-    <img src="https://img.shields.io/static/v1?label=&message=docs%20%26%20demos&color=f43f5e" />
-  </a>
-  <a href="https://github.com/chengpeiquan/bassist" target="__blank">
-    <img alt="GitHub stars" src="https://img.shields.io/github/stars/chengpeiquan/bassist?style=social" />
-  </a>
+<p align='center'>
+  <img width="300" src="../public/logo.svg" alt="@web-analytics/core" />
 </p>
 
-Opinionated collection of common JavaScript / TypeScript utils by [@chengpeiquan](https://github.com/chengpeiquan) .
+# @web-analytics/core
 
-- 🌳 Fully tree shakeable
-- 💪 Type Strong
-- 💡 No bundler required
-- 🦄 SSR Friendly
+Website pageviews analytics tool for framework-free and multi-analytics-platform support.
 
 ## Usage
 
 With npm(or yarn, or pnpm):
 
 ```bash
-npm install @bassist/utils
+npm install @web-analytics/core
 ```
 
-In `.js` / `.ts` or other files:
+It is recommended to initialize in public tool files such as utils and export the initialized instance.
 
 ```ts
-import { isMobile } from '@bassist/utils'
+// @/utils.ts
+import { Analytics } from '@web-analytics/core'
 
-if (isMobile()) {
-  // do something...
-}
+export const analytics = new Analytics({
+  platform: 'baidu',
+  websiteId: 'this_is_an_example_id',
+})
 ```
 
-With CDN:
+In the business file, import the instance and call the method on the instance.
 
-```html
-<script src="https://cdn.jsdelivr.net/npm/@bassist/utils"></script>
-<script>
-  // All methods are on the `Utils` variable
-  console.log(Utils)
+```ts
+// @/foo.ts
+import { analytics } from '@/utils'
 
-  if (Utils.isMobile()) {
-    // do something...
-  }
-</script>
+analytics.trackPageview()
 ```
 
 ## Documentation
 
-See: [Documentation of utils](https://paka.dev/npm/@bassist/utils)
+See: [https://analytics.js.org/core/](https://analytics.js.org/core/)
 
 ## Release Notes
 
-Please refer to [CHANGELOG](https://github.com/chengpeiquan/bassist/blob/main/packages/utils/CHANGELOG.md) for details.
+Please refer to [CHANGELOG](https://github.com/analyticsjs/web-analytics/blob/main/packages/core/CHANGELOG.md) for details.
 
 ## License
 
-MIT License © 2022 [chengpeiquan](https://github.com/chengpeiquan)
+MIT License © 2023 [chengpeiquan](https://github.com/chengpeiquan)

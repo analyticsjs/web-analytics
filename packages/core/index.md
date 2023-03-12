@@ -9,7 +9,7 @@ Installed into `dependencies` of package.json in the project.
 :::code-group
 
 ```bash [npm]
-npm i @web-analytics/core
+npm install @web-analytics/core
 ```
 
 ```bash [yarn]

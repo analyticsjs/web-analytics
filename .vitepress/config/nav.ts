@@ -15,6 +15,10 @@ export const nav: Record<Locales, DefaultTheme.NavItem[]> = {
       text: 'Release Notes',
       link: 'https://github.com/analyticsjs/web-analytics/releases',
     },
+    {
+      text: 'Git Analytics',
+      link: 'https://github.com/analyticsjs/git-commit-analytics',
+    },
   ],
 
   /**
