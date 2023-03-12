@@ -1,4 +1,5 @@
-import { readFileSync } from '@withtypes/fs-extra'
+import { readdirSync } from '@withtypes/fs-extra'
+import { readFileSync, lstatSync } from '@withtypes/fs-extra'
 import minimist from '@withtypes/minimist'
 import { resolve } from 'path'
 
@@ -31,8 +32,29 @@ export function getArgv() {
 /**
  * Determine whether the npm package in Monorepo
  */
-export function isPackage(name: string) {
-  return !['guide', 'public', 'index.md'].includes(name)
+export function isPackage(fullPath: string) {
+  const stat = lstatSync(fullPath)
+  const isDir = stat.isDirectory()
+  if (!isDir) {
+    return false
+  }
+
+  const files = readdirSync(fullPath)
+  return files.includes('package.json')
+}
+
+/**
+ * Get the name of npm packages in Monorepo
+ */
+export function getPackages(rootPath: string) {
+  const pkgDir = resolve(rootPath, `./packages`)
+  const packages = readdirSync(pkgDir).filter((name) => {
+    const fullPath = resolve(pkgDir, `./${name}`)
+    return isPackage(fullPath)
+  })
+
+  console.log('packages: ', packages)
+  return packages
 }
 
 /**
