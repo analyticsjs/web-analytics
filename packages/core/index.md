@@ -30,10 +30,14 @@ It is recommended to initialize in public tool files such as utils and export th
 // @/utils.ts
 import { Analytics } from '@web-analytics/core'
 
+// Perform initialization and export the instance
 export const analytics = new Analytics({
   platform: 'example_platform',
   websiteId: 'example_website_id',
 })
+
+// Load the platform's JS-SDK file
+analytics.init()
 ```
 
 In other files, import the instance and call the method on the instance.
@@ -42,22 +46,22 @@ In other files, import the instance and call the method on the instance.
 // @/foo.ts
 import { analytics } from '@/utils'
 
-analytics.trackPageview()
+const url = window.location.href
+analytics.trackPageview(url)
 ```
 
 For more detailed instructions, continue reading the documentation.
 
 ## Initialization
 
-Create an instance of the plugin with `new Analytics({ ...options })` like this.
+Use named imports to import `Analytics` from `@web-analytics/core` into your file, and use the `new` operator to initialize it.
+
+During initialization, some options need to be passed in, see the type declarations below.
 
 ```ts
 import { Analytics } from '@web-analytics/core'
 
-const analytics = new Analytics({
-  // See the type declaration below for plugin options
-  ...options,
-})
+const analytics = new Analytics(options)
 ```
 
 - Type Declarations:
@@ -85,3 +89,15 @@ interface CreateAnalyticsInstanceOptions {
   debug?: boolean
 }
 ```
+
+## Methods
+
+On the initialized instance, some APIs are provided to call.
+
+### init()
+
+### setAccount()
+
+### trackPageview()
+
+### trackEvent()
