@@ -31,12 +31,12 @@ It is recommended to initialize in public tool files such as utils and export th
 import { Analytics } from '@web-analytics/core'
 
 export const analytics = new Analytics({
-  platform: 'baidu',
-  websiteId: 'this_is_an_example_id',
+  platform: 'example_platform',
+  websiteId: 'example_website_id',
 })
 ```
 
-In the business file, import the instance and call the method on the instance.
+In other files, import the instance and call the method on the instance.
 
 ```ts
 // @/foo.ts
@@ -45,4 +45,43 @@ import { analytics } from '@/utils'
 analytics.trackPageview()
 ```
 
+For more detailed instructions, continue reading the documentation.
+
 ## Initialization
+
+Create an instance of the plugin with `new Analytics({ ...options })` like this.
+
+```ts
+import { Analytics } from '@web-analytics/core'
+
+const analytics = new Analytics({
+  // See the type declaration below for plugin options
+  ...options,
+})
+```
+
+- Type Declarations:
+
+```ts
+interface CreateAnalyticsInstanceOptions {
+  /**
+   * Provides a replacement for the plugin ID for upper-level plugins
+   */
+  pluginId?: string
+
+  /**
+   * The data will be submitted to the current platform
+   */
+  platform: SupportedAnalyticsPlatforms
+
+  /**
+   * The website id from analytics platform
+   */
+  websiteId: WebsiteId
+
+  /**
+   * Whether to enable debug mode
+   */
+  debug?: boolean
+}
+```

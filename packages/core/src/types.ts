@@ -4,9 +4,24 @@ export type SupportedAnalyticsPlatforms =
   (typeof SUPPORTED_ANALYTICS_PLATFORMS)[number]
 
 export interface CreateAnalyticsInstanceOptions {
+  /**
+   * Provides a replacement for the plugin ID for upper-level plugins
+   */
   pluginId?: string
+
+  /**
+   * The data will be submitted to the current platform
+   */
   platform: SupportedAnalyticsPlatforms
+
+  /**
+   * The website id from analytics platform
+   */
   websiteId: WebsiteId
+
+  /**
+   * Whether to enable debug mode
+   */
   debug?: boolean
 }
 
