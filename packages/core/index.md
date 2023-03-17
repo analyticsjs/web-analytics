@@ -2,6 +2,10 @@
 
 Website pageviews analytics tool for framework-free and multi-analytics-platform support.
 
+:::tip
+This is a common package that can be used in any web project, without framework restrictions.
+:::
+
 ## Installation
 
 Installed into `dependencies` of package.json in the project.
@@ -36,8 +40,8 @@ export const analytics = new Analytics({
   websiteId: 'example_website_id',
 })
 
-// Load the platform's JS-SDK file
-analytics.init()
+// Load the JS-SDK file of the analytics platform
+analytics.loadSdk()
 ```
 
 In other files, import the instance and call the method on the instance.
@@ -54,7 +58,7 @@ For more detailed instructions, continue reading the documentation.
 
 ## Initialization
 
-Use named imports to import `Analytics` from `@web-analytics/core` into your file, and use the `new` operator to initialize it.
+Import `Analytics` from `@web-analytics/core` with named imports into your file, and initialize it with the `new` operator.
 
 During initialization, some options need to be passed in, see the type declarations below.
 
@@ -94,10 +98,30 @@ interface CreateAnalyticsInstanceOptions {
 
 On the initialized instance, some APIs are provided to call.
 
-### init()
+### loadSdk
 
-### setAccount()
+Load the JS-SDK file of the analytics platform.
 
-### trackPageview()
+This method will automatically load the JS-SDK file of the analytics platform according to the `platform` option passed in `new Analytics(options)` (Reference: [Initialization](#initialization) ).
 
-### trackEvent()
+:::tip
+Before starting to track data, you must call this method to load JS-SDK, otherwise the data cannot be reported.
+:::
+
+- Type Declarations:
+
+```ts
+declare function loadSdk(): Promise<void>
+```
+
+- Example:
+
+```ts
+analytics.loadSdk()
+```
+
+### setAccount
+
+### trackPageview
+
+### trackEvent

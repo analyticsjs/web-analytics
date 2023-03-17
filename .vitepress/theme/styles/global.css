@@ -5,13 +5,19 @@
   --vp-c-brand-light: #f9c97e !important;
   --vp-c-brand-lighter: #f7b041 !important;
   --vp-c-brand-dark: #ed9307 !important;
-  --vp-c-green-darker: #d68405 !important;
+  --vp-c-brand-darker: #d68405 !important;
+  --vp-custom-block-tip-border: var(--vp-c-brand) !important;
+  --vp-custom-block-tip-text: var(--vp-c-brand-darker) !important;
   --vp-home-hero-image-background-image: linear-gradient(
     -45deg,
     var(--vp-c-brand-dark) 50%,
     var(--vp-c-brand-darker) 50%
   ) !important;
   --vp-home-hero-image-filter: blur(168px) !important;
+}
+
+:root.dark {
+  --vp-custom-block-tip-text: var(--vp-c-brand-lighter) !important;
 }
 
 html {

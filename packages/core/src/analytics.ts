@@ -20,10 +20,10 @@ export class Analytics extends BaseAnalytics {
   }
 
   /**
-   * Load the platform's JS-SDK file
+   * Load the JS-SDK file of the analytics platform
    */
   @debug
-  async init() {
+  async loadSdk() {
     if (!this.sdkInstance || !this.sdkUrl) return
 
     try {

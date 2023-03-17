@@ -14,7 +14,7 @@ export const sidebar: Record<Locales, DefaultTheme.Sidebar> = {
       ],
     },
     {
-      text: 'Packages',
+      text: 'Common Packages',
       items: [
         { text: 'Core', link: '/core/' },
         // { text: 'Starter Template', link: '/docs/starter-template' },
