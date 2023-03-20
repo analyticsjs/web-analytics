@@ -1,5 +1,6 @@
-import { isBrowser } from '@bassist/utils'
+import { isBrowser, loadRes } from '@bassist/utils'
 import { DEFAULT_PLUGIN_ID, SUPPORTED_ANALYTICS_PLATFORMS } from './constants'
+import { debug } from './decorators'
 import type {
   CreateAnalyticsInstanceOptions,
   SdkInstance,
@@ -25,6 +26,7 @@ export class BaseAnalytics {
     this.websiteId = websiteId
     this.debug = typeof debug === 'boolean' ? debug : false
     this.updatePlatformInfo()
+    this.loadSdk()
   }
 
   /**
@@ -58,6 +60,22 @@ export class BaseAnalytics {
         )
       }
     }
+  }
+
+  /**
+   * Load the JS-SDK file of the analytics platform
+   */
+  @debug
+  private loadSdk() {
+    if (!this.sdkInstance || !this.sdkUrl) return
+
+    loadRes({
+      type: 'js',
+      id: `${this.pluginId}-${this.platform}-${this.websiteId}`,
+      resource: this.sdkUrl,
+    }).catch((e) => {
+      console.log(e)
+    })
   }
 
   throwError(msg: string) {

@@ -102,7 +102,7 @@ On the initialized instance, some APIs are provided to call.
 
 Load the JS-SDK file of the analytics platform.
 
-This method will automatically load the JS-SDK file of the analytics platform according to the `platform` option passed in `new Analytics(options)` (Reference: [Initialization](#initialization) ).
+This method will automatically load the JS-SDK file of the `options.platform` from `new Analytics(options)` (Reference: [Initialization](#initialization) ).
 
 :::tip
 Before starting to track data, you must call this method to load JS-SDK, otherwise the data cannot be reported.

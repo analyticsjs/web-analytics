@@ -1,4 +1,3 @@
-import { loadRes } from '@bassist/utils'
 import { BaseAnalytics } from './base'
 import { debug } from './decorators'
 import { formatPageUrl } from './utils'
@@ -17,24 +16,6 @@ export class Analytics extends BaseAnalytics {
     debug,
   }: CreateAnalyticsInstanceOptions) {
     super({ pluginId, platform, websiteId, debug })
-  }
-
-  /**
-   * Load the JS-SDK file of the analytics platform
-   */
-  @debug
-  async loadSdk() {
-    if (!this.sdkInstance || !this.sdkUrl) return
-
-    try {
-      await loadRes({
-        type: 'js',
-        id: `${this.pluginId}-${this.platform}-${this.websiteId}`,
-        resource: this.sdkUrl,
-      })
-    } catch (e) {
-      console.log(e)
-    }
   }
 
   /**
