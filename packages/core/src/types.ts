@@ -59,7 +59,7 @@ export interface SdkInstance {
 export interface TrackEventOptions {
   category: EventCategory
   action: EventAction
-  label: EventLabel
-  value: EventValue
+  label?: EventLabel
+  value?: EventValue
   nodeId?: EventNodeId
 }

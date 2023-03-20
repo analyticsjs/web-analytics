@@ -1,5 +1,5 @@
 import { BaseAnalytics } from './base'
-import { debug } from './decorators'
+import { debug, interceptor } from './decorators'
 import { formatPageUrl, formatLabel, formatValue, formatNodeId } from './utils'
 import { SDK_ACTIONS } from './constants'
 import type {
@@ -40,20 +40,9 @@ export class Analytics extends BaseAnalytics {
    * Track event and report to the statistics platform
    */
   @debug
+  @interceptor
   trackEvent({ category, action, label, value, nodeId }: TrackEventOptions) {
     if (!this.sdkInstance) return
-
-    if (
-      typeof category !== 'string' ||
-      typeof action !== 'string' ||
-      !category ||
-      !action
-    ) {
-      this.throwError(
-        `Missing necessary category and operation information, and must be of type string.`
-      )
-      return
-    }
 
     const currentAction: SdkAction = [
       SDK_ACTIONS.trackEvent,
