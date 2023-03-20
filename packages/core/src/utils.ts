@@ -49,8 +49,8 @@ export function getDebugMessage({
       debugLogs.push(`track event done.`)
       debugLogs.push(`category:     ${category}`)
       debugLogs.push(`action:       ${action}`)
-      debugLogs.push(`label:        ${label}`)
-      debugLogs.push(`value:        ${value}`)
+      debugLogs.push(`label:        ${formatLabel(label)}`)
+      debugLogs.push(`value:        ${formatValue(value)}`)
       break
     }
   }
