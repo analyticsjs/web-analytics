@@ -27,7 +27,7 @@
     "prepare": "simple-git-hooks"
   },
   "dependencies": {
-    "@bassist/utils": "^0.11.0"
+    "@bassist/utils": "^0.11.2"
   },
   "devDependencies": {
     "@bassist/node-utils": "^0.2.1",
