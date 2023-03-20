@@ -1,5 +1,11 @@
 import { pascalCase } from '@bassist/utils'
-import type { SupportedAnalyticsPlatforms } from './types'
+import type {
+  SupportedAnalyticsPlatforms,
+  PageUrl,
+  EventValue,
+  EventLabel,
+  EventNodeId,
+} from './types'
 
 /**
  * Because the decorator cannot capture arguments of the method,
@@ -60,7 +66,7 @@ export function getDebugMessage({
 /**
  * Different platforms may require different URL formats
  */
-export function formatPageUrl(pageUrl: string | undefined) {
+export function formatPageUrl(pageUrl?: PageUrl) {
   if (!pageUrl || typeof pageUrl !== 'string') {
     pageUrl = '/'
   }
@@ -72,4 +78,28 @@ export function formatPageUrl(pageUrl: string | undefined) {
   }
 
   return pageUrl
+}
+
+export function formatNodeId(nodeId?: EventNodeId) {
+  if (!nodeId || typeof nodeId !== 'string') {
+    nodeId = ''
+  }
+
+  return nodeId
+}
+
+export function formatLabel(label?: EventLabel) {
+  if (!label || typeof label !== 'string') {
+    label = ''
+  }
+
+  return label
+}
+
+export function formatValue(value?: EventValue) {
+  if (!value || !Number(value)) {
+    value = 1
+  }
+
+  return value
 }

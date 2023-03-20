@@ -25,19 +25,19 @@ export interface CreateAnalyticsInstanceOptions {
   debug?: boolean
 }
 
-type WebsiteId = string
+export type WebsiteId = string
 
-type PageUrl = string
+export type PageUrl = string
 
-type EventCategory = string
+export type EventCategory = string
 
-type EventAction = string
+export type EventAction = string
 
-type EventLabel = string
+export type EventLabel = string
 
-type EventValue = number
+export type EventValue = number
 
-type EventNodeId = string
+export type EventNodeId = string
 
 export type SdkAction =
   | [SDK_ACTIONS.setAccount, WebsiteId]

@@ -1,6 +1,6 @@
 import { BaseAnalytics } from './base'
 import { debug } from './decorators'
-import { formatPageUrl } from './utils'
+import { formatPageUrl, formatLabel, formatValue, formatNodeId } from './utils'
 import { SDK_ACTIONS } from './constants'
 import type {
   CreateAnalyticsInstanceOptions,
@@ -55,28 +55,16 @@ export class Analytics extends BaseAnalytics {
       return
     }
 
-    if (!label || typeof label !== 'string') {
-      label = ''
-    }
-
-    if (!Number(value)) {
-      value = 1
-    }
-
-    if (!nodeId || typeof nodeId !== 'string') {
-      nodeId = ''
-    }
-
     const currentAction: SdkAction = [
       SDK_ACTIONS.trackEvent,
       category,
       action,
-      label,
-      value,
+      formatLabel(label),
+      formatValue(value),
     ]
 
     if (this.platform === 'cnzz') {
-      currentAction.push(nodeId)
+      currentAction.push(formatNodeId(nodeId))
     }
 
     this.setAccount()
