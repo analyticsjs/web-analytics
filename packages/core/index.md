@@ -79,7 +79,7 @@ interface CreateAnalyticsInstanceOptions {
   /**
    * The data will be submitted to the current platform
    */
-  platform: SupportedAnalyticsPlatforms
+  platform: Platform
 
   /**
    * The website id from analytics platform
@@ -119,8 +119,88 @@ analytics.setAccount()
 
 ### trackPageview
 
-Track pageview and report to the statistics platform
+Track pageview and report to the statistics platform.
+
+- Type Declarations:
+
+```ts
+declare function trackPageview(pageUrl?: string): void
+```
+
+- Example:
+
+```ts
+const url = window.location.href
+analytics.trackPageview(url)
+```
 
 ### trackEvent
 
-Track event and report to the statistics platform
+Track event and report to the statistics platform.
+
+- Type Declarations:
+
+```ts
+declare function trackEvent({
+  category,
+  action,
+  label,
+  value,
+  nodeId,
+}: TrackEventOptions): void
+
+type TrackEventOptions<P extends Platform> = P extends 'cnzz'
+  ? TrackEventOptionsForCnzz
+  : TrackEventOptionsForBaidu
+
+interface TrackEventOptionsForBaidu {
+  /**
+   * The name of the location where the event was triggered
+   *
+   * @example `homepage banner`
+   */
+  category: EventCategory
+  /**
+   * The description of the behavior that triggered the event
+   *
+   * @example `click`
+   */
+  action: EventAction
+  /**
+   * The name of the label that triggered the event,
+   * which can be used to record the event sub-id.
+   *
+   * @example `banner_id_123`
+   *
+   * @default ''
+   */
+  label?: EventLabel
+  /**
+   * The score of the event
+   *
+   * @default 0
+   */
+  value?: EventValue
+}
+
+interface TrackEventOptionsForCnzz extends TrackEventOptionsForBaidu {
+  /**
+   * The id of the element that triggered the event
+   *
+   * @default ''
+   */
+  nodeId?: EventNodeId
+}
+
+type EventCategory = string
+type EventAction = string
+type EventLabel = string
+type EventValue = number
+type EventNodeId = string
+```
+
+- Example:
+
+```ts
+analytics.trackEvent()
+```

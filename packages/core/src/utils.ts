@@ -1,6 +1,6 @@
 import { pascalCase } from '@bassist/utils'
 import type {
-  SupportedAnalyticsPlatforms,
+  Platform,
   PageUrl,
   EventValue,
   EventLabel,
@@ -13,7 +13,7 @@ import type {
  */
 interface GetDebugMessageOptions {
   pluginId: string
-  platform: SupportedAnalyticsPlatforms
+  platform: Platform
   propertyKey: string
   websiteId: string
   args: any[]

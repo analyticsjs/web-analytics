@@ -4,12 +4,12 @@ import { debug } from './decorators'
 import type {
   CreateAnalyticsInstanceOptions,
   SdkInstance,
-  SupportedAnalyticsPlatforms,
+  Platform,
 } from './types'
 
 export class BaseAnalytics {
   pluginId: string
-  platform: SupportedAnalyticsPlatforms
+  platform: Platform
   sdkInstance: SdkInstance | undefined
   sdkUrl = ''
   websiteId = ''

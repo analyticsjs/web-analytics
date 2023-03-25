@@ -1,7 +1,6 @@
 import { SUPPORTED_ANALYTICS_PLATFORMS, SDK_ACTIONS } from './constants'
 
-export type SupportedAnalyticsPlatforms =
-  (typeof SUPPORTED_ANALYTICS_PLATFORMS)[number]
+export type Platform = (typeof SUPPORTED_ANALYTICS_PLATFORMS)[number]
 
 export interface CreateAnalyticsInstanceOptions {
   /**
@@ -12,7 +11,7 @@ export interface CreateAnalyticsInstanceOptions {
   /**
    * The data will be submitted to the current platform
    */
-  platform: SupportedAnalyticsPlatforms
+  platform: Platform
 
   /**
    * The website id from analytics platform
@@ -56,10 +55,51 @@ export interface SdkInstance {
   push: (opt: SdkAction) => void
 }
 
-export interface TrackEventOptions {
+export interface TrackEventOptionsForBaidu {
+  /**
+   * The name of the location where the event was triggered
+   *
+   * @example `homepage banner`
+   */
   category: EventCategory
+
+  /**
+   * The description of the behavior that triggered the event
+   *
+   * @example `click`
+   */
   action: EventAction
+
+  /**
+   * The name of the label that triggered the event,
+   * which can be used to record the event sub-id.
+   *
+   * @example `banner_id_123`
+   *
+   * @default ''
+   */
   label?: EventLabel
+
+  /**
+   * The score of the event
+   *
+   * @default 0
+   */
   value?: EventValue
+}
+
+export interface TrackEventOptionsForCnzz extends TrackEventOptionsForBaidu {
+  /**
+   * The id of the element that triggered the event
+   *
+   * @default ''
+   */
   nodeId?: EventNodeId
 }
+
+/**
+ * Options vary by platform
+ */
+export type TrackEventOptions<P extends Platform> = P extends 'cnzz'
+  ? TrackEventOptionsForCnzz
+  : TrackEventOptionsForBaidu

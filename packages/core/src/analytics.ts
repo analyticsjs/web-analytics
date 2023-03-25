@@ -6,6 +6,7 @@ import type {
   CreateAnalyticsInstanceOptions,
   TrackEventOptions,
   SdkAction,
+  Platform,
 } from './types'
 
 export class Analytics extends BaseAnalytics {
@@ -41,7 +42,14 @@ export class Analytics extends BaseAnalytics {
    */
   @debug
   @interceptor
-  trackEvent({ category, action, label, value, nodeId }: TrackEventOptions) {
+  trackEvent({
+    category,
+    action,
+    label,
+    value,
+    // @ts-ignore
+    nodeId,
+  }: TrackEventOptions<Platform>) {
     if (!this.sdkInstance) return
 
     const currentAction: SdkAction = [
