@@ -39,10 +39,9 @@ export const analytics = new Analytics({
   platform: 'example_platform',
   websiteId: 'example_website_id',
 })
-
-// Load the JS-SDK file of the analytics platform
-analytics.loadSdk()
 ```
+
+The JS-SDK file of the analytics platform will be loaded during initialization.
 
 In other files, import the instance and call the method on the instance.
 
@@ -98,30 +97,30 @@ interface CreateAnalyticsInstanceOptions {
 
 On the initialized instance, some APIs are provided to call.
 
-### loadSdk
+### setAccount
 
-Load the JS-SDK file of the analytics platform.
-
-This method will automatically load the JS-SDK file of the `options.platform` from `new Analytics(options)` (Reference: [Initialization](#initialization) ).
+Provide multi-account switching for upper-level plugins.
 
 :::tip
-Before starting to track data, you must call this method to load JS-SDK, otherwise the data cannot be reported.
+When calling other methods, this method will be called first to activate the website ID corresponding to the instance to ensure the correctness of data submission, so you usually don‘t need to call this method.
 :::
 
 - Type Declarations:
 
 ```ts
-declare function loadSdk(): Promise<void>
+declare function setAccount(): void
 ```
 
 - Example:
 
 ```ts
-analytics.loadSdk()
+analytics.setAccount()
 ```
-
-### setAccount
 
 ### trackPageview
 
+Track pageview and report to the statistics platform
+
 ### trackEvent
+
+Track event and report to the statistics platform
