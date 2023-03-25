@@ -119,7 +119,7 @@ analytics.setAccount()
 
 ### trackPageview
 
-Track pageview and report to the statistics platform.
+Track pageview and report to the analytics platform.
 
 - Type Declarations:
 
@@ -136,7 +136,7 @@ analytics.trackPageview(url)
 
 ### trackEvent
 
-Track event and report to the statistics platform.
+Track event and report to the analytics platform.
 
 - Type Declarations:
 

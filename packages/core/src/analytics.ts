@@ -28,7 +28,7 @@ export class Analytics extends BaseAnalytics {
   }
 
   /**
-   * Track pageview and report to the statistics platform
+   * Track pageview and report to the analytics platform
    */
   @debug
   trackPageview(pageUrl?: string) {
@@ -38,7 +38,7 @@ export class Analytics extends BaseAnalytics {
   }
 
   /**
-   * Track event and report to the statistics platform
+   * Track event and report to the analytics platform
    */
   @debug
   @interceptor
