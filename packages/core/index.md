@@ -1,5 +1,9 @@
 # @web-analytics/core
 
+:::warning
+Developing
+:::
+
 Website pageviews analytics tool for framework-free and multi-analytics-platform support.
 
 :::tip
@@ -70,7 +74,7 @@ const analytics = new Analytics(options)
 - Type Declarations:
 
 ```ts
-interface CreateAnalyticsInstanceOptions {
+export interface CreateAnalyticsInstanceOptions<P> {
   /**
    * Provides a replacement for the plugin ID for upper-level plugins
    */
@@ -79,7 +83,7 @@ interface CreateAnalyticsInstanceOptions {
   /**
    * The data will be submitted to the current platform
    */
-  platform: Platform
+  platform: P
 
   /**
    * The website id from analytics platform
@@ -108,7 +112,16 @@ When calling other methods, this method will be called first to activate the web
 - Type Declarations:
 
 ```ts
-declare function setAccount(): void
+declare class Analytics<P extends Platform> extends BaseAnalytics<P> {
+  // ...
+
+  /**
+   * Provide multi-account switching for upper-level plugins
+   */
+  setAccount(): void
+
+  // ...
+}
 ```
 
 - Example:
@@ -124,7 +137,16 @@ Track pageview and report to the analytics platform.
 - Type Declarations:
 
 ```ts
-declare function trackPageview(pageUrl?: string): void
+declare class Analytics<P extends Platform> extends BaseAnalytics<P> {
+  // ...
+
+  /**
+   * Track pageview and report to the analytics platform
+   */
+  trackPageview(pageUrl?: string): void
+
+  // ...
+}
 ```
 
 - Example:
@@ -141,31 +163,39 @@ Track event and report to the analytics platform.
 - Type Declarations:
 
 ```ts
-declare function trackEvent({
-  category,
-  action,
-  label,
-  value,
-  nodeId,
-}: TrackEventOptions): void
+declare class Analytics<P extends Platform> extends BaseAnalytics<P> {
+  // ...
+
+  trackEvent({
+    category,
+    action,
+    label,
+    value,
+    nodeId,
+  }: TrackEventOptions<P>): void
+
+  // ...
+}
 
 type TrackEventOptions<P extends Platform> = P extends 'cnzz'
-  ? TrackEventOptionsForCnzz
-  : TrackEventOptionsForBaidu
+  ? CnzzTrackEventOptions
+  : BaiduTrackEventOptions
 
-interface TrackEventOptionsForBaidu {
+interface BaseTrackEventOptions {
   /**
    * The name of the location where the event was triggered
    *
    * @example `homepage banner`
    */
   category: EventCategory
+
   /**
    * The description of the behavior that triggered the event
    *
    * @example `click`
    */
   action: EventAction
+
   /**
    * The name of the label that triggered the event,
    * which can be used to record the event sub-id.
@@ -175,6 +205,7 @@ interface TrackEventOptionsForBaidu {
    * @default ''
    */
   label?: EventLabel
+
   /**
    * The score of the event
    *
@@ -183,7 +214,9 @@ interface TrackEventOptionsForBaidu {
   value?: EventValue
 }
 
-interface TrackEventOptionsForCnzz extends TrackEventOptionsForBaidu {
+type BaiduTrackEventOptions = BaseTrackEventOptions
+
+interface CnzzTrackEventOptions extends BaseTrackEventOptions {
   /**
    * The id of the element that triggered the event
    *
@@ -202,5 +235,10 @@ type EventNodeId = string
 - Example:
 
 ```ts
-analytics.trackEvent()
+analytics.trackEvent({
+  category: 'homepage banner',
+  action: 'click',
+  label: 'banner_id_123',
+  value: 0,
+})
 ```

@@ -45,12 +45,15 @@ export function getDebugMessage({
     }
 
     case 'trackEvent': {
-      const { category, action, label, value } = args[0] || {}
+      const { category, action, label, value, nodeId } = args[0] || {}
       debugLogs.push(`track event done.`)
       debugLogs.push(`category:     ${category}`)
       debugLogs.push(`action:       ${action}`)
       debugLogs.push(`label:        ${formatLabel(label)}`)
       debugLogs.push(`value:        ${formatValue(value)}`)
+      if (platform === 'cnzz') {
+        debugLogs.push(`nodeId:       ${formatNodeId(nodeId)}`)
+      }
       break
     }
   }

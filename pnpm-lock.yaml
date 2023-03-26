@@ -55,9 +55,9 @@ importers:
 
   packages/core:
     specifiers:
-      '@bassist/utils': ^0.11.0
+      '@bassist/utils': ^0.11.2
     dependencies:
-      '@bassist/utils': 0.11.0
+      '@bassist/utils': 0.11.2
 
 packages:
 
@@ -220,10 +220,6 @@ packages:
     dependencies:
       '@withtypes/fs-extra': 0.1.1
     dev: true
-
-  /@bassist/utils/0.11.0:
-    resolution: {integrity: sha512-lLnMCSJ278ZZAL49UVv95ruoSIw3rmPGPDlt/MlSLGtFoMJOT7wmfgXDJ2lcxHMYwRsGzde7Ud5Gt3pS49n+vA==}
-    dev: false
 
   /@bassist/utils/0.11.2:
     resolution: {integrity: sha512-qybnYCrh/7AYrch4r+sjgrMgUlUIXJ1xmJwnx486nOD9ishFDlel7p6n8uitH6cygNW4n+/AJm5nAKRVSq3yng==}
