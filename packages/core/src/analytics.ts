@@ -9,13 +9,13 @@ import type {
   Platform,
 } from './types'
 
-export class Analytics extends BaseAnalytics {
+export class Analytics<P extends Platform> extends BaseAnalytics<P> {
   constructor({
     pluginId,
     platform,
     websiteId,
     debug,
-  }: CreateAnalyticsInstanceOptions) {
+  }: CreateAnalyticsInstanceOptions<P>) {
     super({ pluginId, platform, websiteId, debug })
   }
 
@@ -49,7 +49,7 @@ export class Analytics extends BaseAnalytics {
     value,
     // @ts-ignore
     nodeId,
-  }: TrackEventOptions<Platform>) {
+  }: TrackEventOptions<P>) {
     if (!this.sdkInstance) return
 
     const currentAction: SdkAction = [

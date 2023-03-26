@@ -7,9 +7,9 @@ import type {
   Platform,
 } from './types'
 
-export class BaseAnalytics {
+export class BaseAnalytics<P extends Platform> {
   pluginId: string
-  platform: Platform
+  platform: P
   sdkInstance: SdkInstance | undefined
   sdkUrl = ''
   websiteId = ''
@@ -20,7 +20,7 @@ export class BaseAnalytics {
     platform,
     websiteId,
     debug,
-  }: CreateAnalyticsInstanceOptions) {
+  }: CreateAnalyticsInstanceOptions<P>) {
     this.pluginId = pluginId || DEFAULT_PLUGIN_ID
     this.platform = platform
     this.websiteId = websiteId
