@@ -2,7 +2,7 @@ import { SUPPORTED_ANALYTICS_PLATFORMS, SDK_ACTIONS } from './constants'
 
 export type Platform = (typeof SUPPORTED_ANALYTICS_PLATFORMS)[number]
 
-export interface CreateAnalyticsInstanceOptions<P> {
+export interface AnalyticsConstructorOptions {
   /**
    * Provides a replacement for the plugin ID for upper-level plugins
    */
@@ -11,7 +11,7 @@ export interface CreateAnalyticsInstanceOptions<P> {
   /**
    * The data will be submitted to the current platform
    */
-  platform: P
+  platform: Platform
 
   /**
    * The website id from analytics platform
@@ -23,6 +23,9 @@ export interface CreateAnalyticsInstanceOptions<P> {
    */
   debug?: boolean
 }
+
+export interface CreateAnalyticsInstanceOptions
+  extends Omit<AnalyticsConstructorOptions, 'platform'> {}
 
 export type WebsiteId = string
 
@@ -55,7 +58,7 @@ export interface SdkInstance {
   push: (opt: SdkAction) => void
 }
 
-export interface BaseTrackEventOptions {
+export interface BaiduTrackEventOptions {
   /**
    * The name of the location where the event was triggered
    *
@@ -88,9 +91,7 @@ export interface BaseTrackEventOptions {
   value?: EventValue
 }
 
-export type BaiduTrackEventOptions = BaseTrackEventOptions
-
-export interface CnzzTrackEventOptions extends BaseTrackEventOptions {
+export interface CnzzTrackEventOptions extends BaiduTrackEventOptions {
   /**
    * The id of the element that triggered the event
    *

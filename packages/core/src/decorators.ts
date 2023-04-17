@@ -1,6 +1,5 @@
 import { BaseAnalytics } from './base'
 import { getDebugMessage } from './utils'
-import type { Platform } from './types'
 
 /**
  * Print the debug message on the console when debug mode is enabled
@@ -18,7 +17,7 @@ export function debug(
       pluginId,
       platform,
       websiteId,
-    } = this as BaseAnalytics<Platform>
+    } = this as BaseAnalytics
 
     if (debugging) {
       const message = getDebugMessage({
@@ -57,7 +56,7 @@ export function interceptor(
       !category ||
       !action
     ) {
-      ;(this as BaseAnalytics<Platform>).throwError(
+      ;(this as BaseAnalytics).throwError(
         'Valid `category` and `action` are missing from the track event options.'
       )
       return

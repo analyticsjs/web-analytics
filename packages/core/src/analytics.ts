@@ -3,19 +3,19 @@ import { debug, interceptor } from './decorators'
 import { formatPageUrl, formatLabel, formatValue, formatNodeId } from './utils'
 import { SDK_ACTIONS } from './constants'
 import type {
-  CreateAnalyticsInstanceOptions,
+  AnalyticsConstructorOptions,
   TrackEventOptions,
   SdkAction,
   Platform,
 } from './types'
 
-export class Analytics<P extends Platform> extends BaseAnalytics<P> {
+export class Analytics<P extends Platform = Platform> extends BaseAnalytics {
   constructor({
     pluginId,
     platform,
     websiteId,
     debug,
-  }: CreateAnalyticsInstanceOptions<P>) {
+  }: AnalyticsConstructorOptions) {
     super({ pluginId, platform, websiteId, debug })
   }
 

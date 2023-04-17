@@ -2,14 +2,14 @@ import { isBrowser, loadRes } from '@bassist/utils'
 import { DEFAULT_PLUGIN_ID, SUPPORTED_ANALYTICS_PLATFORMS } from './constants'
 import { debug } from './decorators'
 import type {
-  CreateAnalyticsInstanceOptions,
+  AnalyticsConstructorOptions,
   SdkInstance,
   Platform,
 } from './types'
 
-export class BaseAnalytics<P extends Platform> {
+export class BaseAnalytics {
   pluginId: string
-  platform: P
+  platform: Platform
   sdkInstance: SdkInstance | undefined
   sdkUrl = ''
   websiteId = ''
@@ -20,7 +20,7 @@ export class BaseAnalytics<P extends Platform> {
     platform,
     websiteId,
     debug,
-  }: CreateAnalyticsInstanceOptions<P>) {
+  }: AnalyticsConstructorOptions) {
     this.pluginId = pluginId || DEFAULT_PLUGIN_ID
     this.platform = platform
     this.websiteId = websiteId
