@@ -34,61 +34,120 @@ pnpm add @web-analytics/core
 
 It is recommended to initialize in public tool files such as utils and export the initialized instance.
 
-```ts
-// @/utils.ts
-import { Analytics } from '@web-analytics/core'
+:::code-group
 
-// Perform initialization and export the instance
-export const analytics = new Analytics({
-  platform: 'example_platform',
-  websiteId: 'example_website_id',
+```ts [Baidu Analytics]
+// @/libs/analytics.ts
+import { createBaiduAnalytics } from '@web-analytics/core'
+
+// Create and export the instance of baidu analytics platform
+export const baiduAnalytics = createBaiduAnalytics({
+  websiteId: 'your_website_id',
+  debug: true,
 })
 ```
 
-The JS-SDK file of the analytics platform will be loaded during initialization.
+```ts [CNZZ Analytics]
+// @/libs/analytics.ts
+import { createCnzzAnalytics } from '@web-analytics/core'
+
+// Create and export the instance of cnzz analytics platform
+export const cnzzAnalytics = createCnzzAnalytics({
+  websiteId: 'your_website_id',
+  debug: true,
+})
+```
+
+:::
 
 In other files, import the instance and call the method on the instance.
 
-```ts
-// @/foo.ts
-import { analytics } from '@/utils'
+:::code-group
 
+```ts [Baidu Analytics]
+// @/foo.ts
+import { baiduAnalytics } from '@/libs/analytics'
+
+// For more methods, please see the documentation below
 const url = window.location.href
-analytics.trackPageview(url)
+baiduAnalytics.trackPageview(url)
 ```
+
+```ts [CNZZ Analytics]
+// @/foo.ts
+import { cnzzAnalytics } from '@/libs/analytics'
+
+// For more methods, please see the documentation below
+const url = window.location.href
+cnzzAnalytics.trackPageview(url)
+```
+
+:::
 
 For more detailed instructions, continue reading the documentation.
 
-## Initialization
+## Platforms
 
-Import `Analytics` from `@web-analytics/core` with named imports into your file, and initialize it with the `new` operator.
-
-During initialization, some options need to be passed in, see the type declarations below.
-
-```ts
-import { Analytics } from '@web-analytics/core'
-
-const analytics = new Analytics(options)
-```
+The following analytics platforms are currently supported.
 
 - Type Declarations:
 
 ```ts
-export interface CreateAnalyticsInstanceOptions<P> {
+type Platform =
+  /**
+   * Baidu analysis platform
+   * @website https://tongji.baidu.com
+   * @docs https://tongji.baidu.com/open/api
+   */
+  | 'baidu'
+
+  /**
+   * U-Web(CNZZ) analysis platform
+   * @website https://www.umeng.com/web
+   * @docs https://developer.umeng.com/docs/67963/detail/74517
+   */
+  | 'cnzz'
+```
+
+:::tip
+Because the developer of the plugin lives in mainland China, so the current priority is to support the two major analytics platforms in China.
+:::
+
+## Initialization
+
+The plugin provides a method for creating an instance for each platform, and only needs to pass in the necessary options to complete the initialization work.
+
+- Type Declaration of methods:
+
+:::code-group
+
+```ts [Baidu Analytics]
+declare function createBaiduAnalytics(
+  options: CreateAnalyticsInstanceOptions
+): Analytics<'baidu'>
+```
+
+```ts [CNZZ Analytics]
+declare function createCnzzAnalytics(
+  options: CreateAnalyticsInstanceOptions
+): Analytics<'cnzz'>
+```
+
+:::
+
+- Type Declaration of options:
+
+```ts
+interface CreateAnalyticsInstanceOptions {
   /**
    * Provides a replacement for the plugin ID for upper-level plugins
    */
   pluginId?: string
 
   /**
-   * The data will be submitted to the current platform
-   */
-  platform: P
-
-  /**
    * The website id from analytics platform
    */
-  websiteId: WebsiteId
+  websiteId: string
 
   /**
    * Whether to enable debug mode
@@ -96,6 +155,8 @@ export interface CreateAnalyticsInstanceOptions<P> {
   debug?: boolean
 }
 ```
+
+The JS-SDK file of the analytics platform will be loaded during initialization.
 
 ## Methods
 

@@ -2,7 +2,7 @@ import { inBrowser } from 'vitepress'
 
 export const siteIds = [
   '8dca8e2532df48ea7f1b15c714588691', // Main site
-  'd7811a1304f64c0ce3340662babcf04f', // This site
+  'ae70e8f142fc9722f09c0076ce5cd1db', // This site
 ]
 
 export function registerAnalytics(siteId: string) {
