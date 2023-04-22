@@ -4,7 +4,7 @@
 
 # Web Analytics
 
-Website pageviews analytics tools.
+Website pageview analytics tools.
 
 ## License
 

@@ -4,7 +4,7 @@
   "description": "Website pageview analytics tool for framework-free and multi-analytics-platform support.",
   "author": "chengpeiquan <chengpeiquan@chengpeiquan.com>",
   "license": "MIT",
-  "homepage": "https://github.com/analyticsjs/web-analytics/tree/main/packages/core",
+  "homepage": "https://analytics.js.org/core/",
   "files": [
     "lib",
     "types"
