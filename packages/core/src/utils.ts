@@ -38,9 +38,12 @@ export function getDebugMessage({
     }
 
     case 'trackPageview': {
-      const [pageUrl] = args
+      const { pageUrl, fromUrl } = args[0] || {}
       debugLogs.push(`track pageview done.`)
       debugLogs.push(`pageUrl:      ${formatPageUrl(pageUrl)}`)
+      if (platform === 'cnzz') {
+        debugLogs.push(`fromUrl:      ${formatPageUrl(fromUrl)}`)
+      }
       break
     }
 
@@ -83,7 +86,7 @@ export function formatPageUrl(pageUrl?: PageUrl) {
   return pageUrl
 }
 
-export function formatFromUrl(fromUrl: PageUrl) {
+export function formatFromUrl(fromUrl?: PageUrl) {
   if (!fromUrl || (fromUrl && typeof fromUrl !== 'string')) {
     fromUrl = ''
   }

@@ -1,10 +1,6 @@
 # @web-analytics/core
 
-:::warning
-Developing
-:::
-
-Website pageviews analytics tool for framework-free and multi-analytics-platform support.
+Website pageview analytics tool for framework-free and multi-analytics-platform support.
 
 :::tip
 This is a common package that can be used in any web project, without framework restrictions.
@@ -69,8 +65,9 @@ In other files, import the instance and call the method on the instance.
 import { baiduAnalytics } from '@/libs/analytics'
 
 // For more methods, please see the documentation below
-const url = window.location.href
-baiduAnalytics.trackPageview(url)
+baiduAnalytics.trackPageview({
+  // Some options...
+})
 ```
 
 ```ts [CNZZ Analytics]
@@ -78,8 +75,9 @@ baiduAnalytics.trackPageview(url)
 import { cnzzAnalytics } from '@/libs/analytics'
 
 // For more methods, please see the documentation below
-const url = window.location.href
-cnzzAnalytics.trackPageview(url)
+cnzzAnalytics.trackPageview({
+  // Some options...
+})
 ```
 
 :::
@@ -162,60 +160,73 @@ The JS-SDK file of the analytics platform will be loaded during initialization.
 
 On the initialized instance, some APIs are provided to call.
 
-### setAccount
+### trackPageview
 
-Provide multi-account switching for upper-level plugins.
+Track pageview and report to the analytics platform.
 
 :::tip
-When calling other methods, this method will be called first to activate the website ID corresponding to the instance to ensure the correctness of data submission, so you usually don‘t need to call this method.
+The URL format will be automatically processed according to the rules of the analytics platform (for example, some platforms do not need `location.origin` ).
 :::
 
 - Type Declarations:
 
 ```ts
-declare class Analytics<P extends Platform> extends BaseAnalytics<P> {
-  // ...
-
-  /**
-   * Provide multi-account switching for upper-level plugins
-   */
-  setAccount(): void
-
-  // ...
-}
-```
-
-- Example:
-
-```ts
-analytics.setAccount()
-```
-
-### trackPageview
-
-Track pageview and report to the analytics platform.
-
-- Type Declarations:
-
-```ts
-declare class Analytics<P extends Platform> extends BaseAnalytics<P> {
+declare class Analytics<P extends Platform = Platform> extends BaseAnalytics {
   // ...
 
   /**
    * Track pageview and report to the analytics platform
    */
-  trackPageview(pageUrl?: string): void
+  trackPageview({ pageUrl, fromUrl }: TrackPageviewOptions<P>): void
 
   // ...
 }
+
+type TrackPageviewOptions<P extends Platform> = P extends 'cnzz'
+  ? CnzzTrackPageviewOptions
+  : BaiduTrackPageviewOptions
+
+interface BaiduTrackPageviewOptions {
+  /**
+   * The URL of the currently visited page
+   *
+   * @default '/'
+   */
+  pageUrl: PageUrl
+}
+
+interface CnzzTrackPageviewOptions extends BaiduTrackPageviewOptions {
+  /**
+   * The URL of the previous visited page
+   *
+   * @default '/'
+   */
+  fromUrl?: FromUrl
+}
+
+type PageUrl = string
+
+type FromUrl = string
 ```
 
 - Example:
 
-```ts
-const url = window.location.href
-analytics.trackPageview(url)
+:::code-group
+
+```ts [Baidu Analytics]
+baiduAnalytics.trackPageview({
+  pageUrl: '/the-currently-visited-page-url',
+})
 ```
+
+```ts [CNZZ Analytics]
+cnzzAnalytics.trackPageview({
+  pageUrl: '/the-currently-visited-page-url',
+  fromUrl: '/the-previous-visited-page-url',
+})
+```
+
+:::
 
 ### trackEvent
 
@@ -287,19 +298,37 @@ interface CnzzTrackEventOptions extends BaseTrackEventOptions {
 }
 
 type EventCategory = string
+
 type EventAction = string
+
 type EventLabel = string
+
 type EventValue = number
+
 type EventNodeId = string
 ```
 
 - Example:
 
-```ts
-analytics.trackEvent({
+:::code-group
+
+```ts [Baidu Analytics]
+baiduAnalytics.trackEvent({
   category: 'homepage banner',
   action: 'click',
   label: 'banner_id_123',
   value: 0,
 })
 ```
+
+```ts [CNZZ Analytics]
+cnzzAnalytics.trackEvent({
+  category: 'homepage banner',
+  action: 'click',
+  label: 'banner_id_123',
+  value: 0,
+  nodeId: 'banner_123',
+})
+```
+
+:::

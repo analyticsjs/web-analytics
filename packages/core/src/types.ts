@@ -71,6 +71,8 @@ export interface SdkInstance {
 export interface BaiduTrackPageviewOptions {
   /**
    * The URL of the currently visited page
+   *
+   * @default '/'
    */
   pageUrl: PageUrl
 }
@@ -78,8 +80,10 @@ export interface BaiduTrackPageviewOptions {
 export interface CnzzTrackPageviewOptions extends BaiduTrackPageviewOptions {
   /**
    * The URL of the previous visited page
+   *
+   * @default '/'
    */
-  fromUrl: FromUrl
+  fromUrl?: FromUrl
 }
 
 export type TrackPageviewOptions<P extends Platform> = P extends 'cnzz'
