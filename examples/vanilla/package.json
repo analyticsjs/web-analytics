@@ -1,0 +1,19 @@
+{
+  "name": "vanilla-example",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@web-analytics/core": "file:../../packages/core",
+    "shared": "file:../shared"
+  },
+  "devDependencies": {
+    "typescript": "file:../../node_modules/typescript",
+    "vite": "file:../../node_modules/vite"
+  }
+}

@@ -5,7 +5,8 @@ dist
 yarn.lock
 yarn-error.log
 package-lock.json
-/packages/**/lib
-/packages/**/types
+examples/*/pnpm-lock.yaml
+packages/**/lib
+packages/**/types
 coverage
 cache
