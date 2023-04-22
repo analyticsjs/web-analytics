@@ -10,7 +10,7 @@ const baiduAnalytics = createBaiduAnalytics({
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
-    <a href="https://analytics.js.org/" target="_blank">
+    <a href="https://analytics.js.org/core/" target="_blank">
       <img src="${logo}" class="logo" alt="Web Analytics Logo" />
     </a>
     <h1>Vanilla Example</h1>
@@ -24,7 +24,9 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 
 // Click the button to track pageview
 document.querySelector('#tp')?.addEventListener('click', () => {
-  baiduAnalytics.trackPageview()
+  baiduAnalytics.trackPageview({
+    pageUrl: window.location.href,
+  })
 })
 
 // Click the button to track event
