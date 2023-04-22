@@ -41,14 +41,14 @@ export class BaseAnalytics {
     switch (this.platform) {
       case 'baidu': {
         // @ts-ignore
-        this.sdkInstance = window._hmt || []
+        this.sdkInstance = (window._hmt || []) as SdkInstance<'baidu'>
         this.sdkUrl = `https://hm.baidu.com/hm.js?${this.websiteId}`
         break
       }
 
       case 'cnzz': {
         // @ts-ignore
-        this.sdkInstance = window._czc || []
+        this.sdkInstance = (window._czc || []) as SdkInstance<'cnzz'>
         this.sdkUrl = `https://s9.cnzz.com/z_stat.php?id=${this.websiteId}&web_id=${this.websiteId}`
         break
       }

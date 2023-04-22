@@ -31,6 +31,8 @@ export type WebsiteId = string
 
 export type PageUrl = string
 
+export type FromUrl = string
+
 export type EventCategory = string
 
 export type EventAction = string
@@ -41,10 +43,14 @@ export type EventValue = number
 
 export type EventNodeId = string
 
-export type SdkAction =
+export type BaiduSdkAction =
   | [SDK_ACTIONS.setAccount, WebsiteId]
   | [SDK_ACTIONS.trackPageview, PageUrl]
   | [SDK_ACTIONS.trackEvent, EventCategory, EventAction, EventLabel, EventValue]
+
+export type CnzzSdkAction =
+  | [SDK_ACTIONS.setAccount, WebsiteId]
+  | [SDK_ACTIONS.trackPageview, PageUrl, FromUrl]
   | [
       SDK_ACTIONS.trackEvent,
       EventCategory,
@@ -54,9 +60,31 @@ export type SdkAction =
       EventNodeId
     ]
 
+export type SdkAction<P extends Platform> = P extends 'cnzz'
+  ? CnzzSdkAction
+  : BaiduSdkAction
+
 export interface SdkInstance {
-  push: (opt: SdkAction) => void
+  push: <P extends Platform>(opt: SdkAction<P>) => void
 }
+
+export interface BaiduTrackPageviewOptions {
+  /**
+   * The URL of the currently visited page
+   */
+  pageUrl: PageUrl
+}
+
+export interface CnzzTrackPageviewOptions extends BaiduTrackPageviewOptions {
+  /**
+   * The URL of the previous visited page
+   */
+  fromUrl: FromUrl
+}
+
+export type TrackPageviewOptions<P extends Platform> = P extends 'cnzz'
+  ? CnzzTrackPageviewOptions
+  : BaiduTrackPageviewOptions
 
 export interface BaiduTrackEventOptions {
   /**

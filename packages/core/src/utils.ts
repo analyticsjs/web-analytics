@@ -83,6 +83,18 @@ export function formatPageUrl(pageUrl?: PageUrl) {
   return pageUrl
 }
 
+export function formatFromUrl(fromUrl: PageUrl) {
+  if (!fromUrl || (fromUrl && typeof fromUrl !== 'string')) {
+    fromUrl = ''
+  }
+
+  if (typeof fromUrl === 'string' && !fromUrl.includes('http')) {
+    fromUrl = ''
+  }
+
+  return fromUrl
+}
+
 export function formatNodeId(nodeId?: EventNodeId) {
   if (!nodeId || typeof nodeId !== 'string') {
     nodeId = ''

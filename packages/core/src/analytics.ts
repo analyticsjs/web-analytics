@@ -1,11 +1,17 @@
 import { BaseAnalytics } from './base'
 import { debug, interceptor } from './decorators'
-import { formatPageUrl, formatLabel, formatValue, formatNodeId } from './utils'
+import {
+  formatPageUrl,
+  formatFromUrl,
+  formatLabel,
+  formatValue,
+  formatNodeId,
+} from './utils'
 import { SDK_ACTIONS } from './constants'
 import type {
   AnalyticsConstructorOptions,
+  TrackPageviewOptions,
   TrackEventOptions,
-  SdkAction,
   Platform,
 } from './types'
 
@@ -31,10 +37,33 @@ export class Analytics<P extends Platform = Platform> extends BaseAnalytics {
    * Track pageview and report to the analytics platform
    */
   @debug
-  trackPageview(pageUrl?: string) {
+  trackPageview({
+    pageUrl,
+    // @ts-ignore
+    fromUrl,
+  }: TrackPageviewOptions<P>) {
     if (!this.sdkInstance) return
+
     this.setAccount()
-    this.sdkInstance.push([SDK_ACTIONS.trackPageview, formatPageUrl(pageUrl)])
+
+    switch (this.platform) {
+      case 'baidu': {
+        this.sdkInstance.push([
+          SDK_ACTIONS.trackPageview,
+          formatPageUrl(pageUrl),
+        ])
+        break
+      }
+
+      case 'cnzz': {
+        this.sdkInstance.push([
+          SDK_ACTIONS.trackPageview,
+          formatPageUrl(pageUrl),
+          formatFromUrl(fromUrl),
+        ])
+        break
+      }
+    }
   }
 
   /**
@@ -52,19 +81,31 @@ export class Analytics<P extends Platform = Platform> extends BaseAnalytics {
   }: TrackEventOptions<P>) {
     if (!this.sdkInstance) return
 
-    const currentAction: SdkAction = [
-      SDK_ACTIONS.trackEvent,
-      category,
-      action,
-      formatLabel(label),
-      formatValue(value),
-    ]
-
-    if (this.platform === 'cnzz') {
-      currentAction.push(formatNodeId(nodeId))
-    }
-
     this.setAccount()
-    this.sdkInstance.push(currentAction)
+
+    switch (this.platform) {
+      case 'baidu': {
+        this.sdkInstance.push([
+          SDK_ACTIONS.trackEvent,
+          category,
+          action,
+          formatLabel(label),
+          formatValue(value),
+        ])
+        break
+      }
+
+      case 'cnzz': {
+        this.sdkInstance.push([
+          SDK_ACTIONS.trackEvent,
+          category,
+          action,
+          formatLabel(label),
+          formatValue(value),
+          formatNodeId(nodeId),
+        ])
+        break
+      }
+    }
   }
 }
