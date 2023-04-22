@@ -1,7 +1,7 @@
 {
   "name": "@web-analytics/core",
   "version": "0.1.0",
-  "description": "Website pageviews analytics tool for framework-free and multi-analytics-platform support.",
+  "description": "Website pageview analytics tool for framework-free and multi-analytics-platform support.",
   "author": "chengpeiquan <chengpeiquan@chengpeiquan.com>",
   "license": "MIT",
   "homepage": "https://github.com/analyticsjs/web-analytics/tree/main/packages/core",
@@ -26,7 +26,7 @@
   "keywords": [
     "utils",
     "analytics",
-    "pageviews"
+    "pageview"
   ],
   "dependencies": {
     "@bassist/utils": "^0.11.2"
