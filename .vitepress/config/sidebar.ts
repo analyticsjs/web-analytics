@@ -14,14 +14,10 @@ export const sidebar: Record<Locales, DefaultTheme.Sidebar> = {
       ],
     },
     {
-      text: 'Common Packages',
+      text: 'Core',
       items: [
-        { text: 'Core', link: '/core/' },
-        // { text: 'Starter Template', link: '/docs/starter-template' },
-        // { text: 'Technology Stack', link: '/docs/technology-stack' },
-        // { text: 'Local Configuration', link: '/docs/local-configuration' },
-        // { text: 'Proxy Download', link: '/docs/proxy-download' },
-        // { text: 'CLI Upgrade', link: '/docs/cli-upgrade' },
+        { text: 'Usage Docs', link: '/core/' },
+        { text: 'Change Log', link: '/core/changelog' },
       ],
     },
   ],
