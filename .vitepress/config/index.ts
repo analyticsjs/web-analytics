@@ -20,7 +20,7 @@ export default defineConfig({
   head,
   cleanUrls: true,
   rewrites: {
-    'packages/:pkg/CHANGELOG.md': 'packages/:pkg/changelog.md',
+    ':pkg/CHANGELOG.md': ':pkg/changelog.md',
   },
   locales: {
     root: {
