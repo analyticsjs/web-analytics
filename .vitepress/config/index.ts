@@ -16,15 +16,18 @@ export default defineConfig({
   srcDir: 'packages',
   outDir: 'dist',
   title: 'Web Analytics',
-  description: 'Website pageviews analytics tools.',
+  description: 'Website pageview analytics tools.',
   head,
   cleanUrls: true,
+  rewrites: {
+    'packages/:pkg/CHANGELOG.md': 'packages/:pkg/changelog.md',
+  },
   locales: {
     root: {
       label: 'English',
       lang: 'en',
       title: 'Web Analytics',
-      description: 'Website pageviews analytics tools.',
+      description: 'Website pageview analytics tools.',
       themeConfig: {
         nav: nav.en,
         sidebar: sidebar.en,

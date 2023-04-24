@@ -6,20 +6,20 @@ async function run() {
 
   const publishArgs = [
     `pnpm publish`,
-    `-r ${name}`,
+    `-F ${name}`,
     `--no-git-checks`,
     `--access public`,
     `${tag ? `--tag ${tag}` : ''}`,
     `--otp ${otp}`,
   ]
 
-  const cmds = [
+  const commands = [
     `pnpm mirror:rm`,
     `pnpm build ${name}`,
     publishArgs.join(' '),
     `pnpm mirror:set`,
   ]
-  const cmd = cmds.join(' && ')
+  const cmd = commands.join(' && ')
   execSync(cmd)
 }
 run().catch((e) => {
