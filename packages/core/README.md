@@ -1,5 +1,5 @@
 <p align='center'>
-  <img width="300" src="../public/logo.svg" alt="@web-analytics/core" />
+  <img width="300" src="https://analytics.js.org/logo.svg" alt="@web-analytics/core" />
 </p>
 
 # @web-analytics/core
