@@ -1,6 +1,6 @@
 {
   "name": "@web-analytics/core",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Website pageview analytics tool for framework-free and multi-analytics-platform support.",
   "author": "chengpeiquan <chengpeiquan@chengpeiquan.com>",
   "license": "MIT",
