@@ -1,3 +1,12 @@
+## [0.1.1](https://github.com/analyticsjs/web-analytics/compare/core@0.1.0...core@0.1.1) (2023-04-24)
+
+
+### Bug Fixes
+
+* **core:** export types ([5b4cff1](https://github.com/analyticsjs/web-analytics/commit/5b4cff1bbd461d5a5ad072feaa4509335e3d5f28))
+
+
+
 # 0.1.0 (2023-04-22)
 
 ### Features
