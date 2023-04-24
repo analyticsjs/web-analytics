@@ -20,13 +20,13 @@ export const sidebar: Record<Locales, DefaultTheme.Sidebar> = {
         { text: 'Change Log', link: '/core/changelog' },
       ],
     },
-    {
-      text: 'Vue.js',
-      items: [
-        { text: 'Usage Docs', link: '/vue/' },
-        { text: 'Change Log', link: '/vue/changelog' },
-      ],
-    },
+    // {
+    //   text: 'Vue.js',
+    //   items: [
+    //     { text: 'Usage Docs', link: '/vue/' },
+    //     { text: 'Change Log', link: '/vue/changelog' },
+    //   ],
+    // },
   ],
 
   /**
