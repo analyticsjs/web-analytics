@@ -33,10 +33,7 @@ export class BaseAnalytics {
    * Smooth out the differences between different platforms
    */
   private updatePlatformInfo() {
-    if (!isBrowser) {
-      this.throwError('Plugin only works in the browser.')
-      return
-    }
+    if (!isBrowser) return
 
     switch (this.platform) {
       case 'baidu': {
