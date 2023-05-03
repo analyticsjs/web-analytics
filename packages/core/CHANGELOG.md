@@ -1,3 +1,12 @@
+## [0.1.2](https://github.com/analyticsjs/web-analytics/compare/core@0.1.1...core@0.1.2) (2023-05-03)
+
+
+### Bug Fixes
+
+* **core:** no need to throw errors during server-side generate ([4b54a65](https://github.com/analyticsjs/web-analytics/commit/4b54a65bf1b1bcc4059f30e4d4b3b0386ae09127))
+
+
+
 ## [0.1.1](https://github.com/analyticsjs/web-analytics/compare/core@0.1.0...core@0.1.1) (2023-04-24)
 
 
