@@ -57,7 +57,9 @@ h1 {
   display: flex;
   flex-direction: column;
   gap: 1em;
+  width: 300px;
   padding: 2em;
+  margin: 0 auto;
 }
 
 .read-the-docs {
