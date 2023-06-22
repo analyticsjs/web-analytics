@@ -2,7 +2,7 @@ import { Analytics } from './analytics'
 import type { CreateAnalyticsInstanceOptions } from './types'
 
 export * from './types'
-
+export { SUPPORTED_ANALYTICS_PLATFORMS } from './constants'
 export { Analytics }
 
 export function createBaiduAnalytics(options: CreateAnalyticsInstanceOptions) {
