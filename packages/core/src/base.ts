@@ -24,7 +24,7 @@ export class BaseAnalytics {
     this.pluginId = pluginId || DEFAULT_PLUGIN_ID
     this.platform = platform
     this.websiteId = websiteId
-    this.debug = typeof debug === 'boolean' ? debug : false
+    this.debug = debug ?? false
     this.updatePlatformInfo()
     this.loadSdk()
   }
