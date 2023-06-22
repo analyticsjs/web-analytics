@@ -3,6 +3,8 @@ import type { CreateAnalyticsInstanceOptions } from './types'
 
 export * from './types'
 
+export { Analytics }
+
 export function createBaiduAnalytics(options: CreateAnalyticsInstanceOptions) {
   return new Analytics<'baidu'>({
     platform: 'baidu',
