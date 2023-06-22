@@ -9,11 +9,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@web-analytics/core": "file:../../packages/core",
-    "shared": "file:../shared"
+    "@web-analytics/core": "workspace:^",
+    "shared": "workspace:^"
   },
   "devDependencies": {
-    "typescript": "file:../../node_modules/typescript",
-    "vite": "file:../../node_modules/vite"
+    "typescript": "^5.0.4",
+    "vite": "^4.2.1"
   }
 }
