@@ -52,8 +52,8 @@ export class BaseAnalytics {
 
       default: {
         const platforms = SUPPORTED_ANALYTICS_PLATFORMS.join(', ')
-        throw new Error(
-          `[${this.pluginId}] Unsupported platform options, only supported: ${platforms}.`
+        this.throwError(
+          `Unsupported platform options, only supported: ${platforms}.`
         )
       }
     }
