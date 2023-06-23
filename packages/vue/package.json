@@ -1,0 +1,35 @@
+{
+  "name": "@web-analytics/vue",
+  "version": "0.1.0",
+  "description": "Website pageview analytics tool for Vue.js and multi-analytics-platform support.",
+  "author": "chengpeiquan <chengpeiquan@chengpeiquan.com>",
+  "license": "MIT",
+  "homepage": "https://analytics.js.org/vue/",
+  "files": [
+    "lib",
+    "types"
+  ],
+  "main": "./lib/index.min.js",
+  "module": "./lib/index.mjs",
+  "types": "./types/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./lib/index.mjs",
+      "require": "./lib/index.cjs",
+      "types": "./types/index.d.js"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/analyticsjs/web-analytics.git"
+  },
+  "keywords": [
+    "utils",
+    "analytics",
+    "pageview"
+  ],
+  "dependencies": {
+    "@bassist/utils": "^0.11.2",
+    "@web-analytics/core": "workspace:^"
+  }
+}
