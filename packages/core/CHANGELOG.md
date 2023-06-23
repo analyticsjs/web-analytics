@@ -1,3 +1,13 @@
+## [0.1.3](https://github.com/analyticsjs/web-analytics/compare/core@0.1.2...core@0.1.3) (2023-06-23)
+
+
+### Features
+
+* **core:** export a constant of supported platforms ([529d3e1](https://github.com/analyticsjs/web-analytics/commit/529d3e171f2a8597b5c68cd1017adfd8a3c3fee9))
+* **core:** export the Analytics class ([7632dd9](https://github.com/analyticsjs/web-analytics/commit/7632dd92927e2051b6e8703efcb4d3a283b504be))
+
+
+
 ## [0.1.2](https://github.com/analyticsjs/web-analytics/compare/core@0.1.1...core@0.1.2) (2023-05-03)
 
 
