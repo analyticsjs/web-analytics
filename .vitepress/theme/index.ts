@@ -1,25 +1,36 @@
 import { inBrowser } from 'vitepress'
-import DefaultTheme from 'vitepress/theme'
-import { siteIds, registerAnalytics, trackPageview } from './plugins/analytics'
+import defaultTheme from 'vitepress/theme'
+import { createVitePressBaiduAnalytics } from '../../packages/vue'
 import { redirect } from './plugins/redirect'
 import './styles/global.css'
 import type { Theme } from 'vitepress'
 
+const { baiduAnalytics, registerBaiduAnalytics } =
+  createVitePressBaiduAnalytics()
+
 const theme: Theme = {
-  ...DefaultTheme,
-  enhanceApp({ router }) {
+  ...defaultTheme,
+  enhanceApp({ app, router }) {
     if (inBrowser) {
       redirect()
 
-      siteIds.forEach((id) => registerAnalytics(id))
+      registerBaiduAnalytics(app, {
+        websiteIds: [
+          '8dca8e2532df48ea7f1b15c714588691', // Main site
+          'ae70e8f142fc9722f09c0076ce5cd1db', // This site
+        ],
+      })
 
       window.addEventListener('hashchange', () => {
-        const { href: url } = window.location
-        siteIds.forEach((id) => trackPageview(id, url))
+        baiduAnalytics.trackPageview({
+          pageUrl: window.location.href,
+        })
       })
 
       router.onAfterRouteChanged = (to) => {
-        siteIds.forEach((id) => trackPageview(id, to))
+        baiduAnalytics.trackPageview({
+          pageUrl: to,
+        })
       }
     }
   },
