@@ -61,7 +61,7 @@ export function createVueBaiduAnalytics() {
 
   return {
     baiduAnalytics,
-    installVueBaiduAnalytics: registerProvider({
+    registerBaiduAnalytics: registerProvider({
       analytics: baiduAnalytics,
       platform: 'baidu',
     }),
