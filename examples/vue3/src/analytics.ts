@@ -1,5 +1,5 @@
 import { createVueBaiduAnalytics } from '@web-analytics/vue'
 
-const { baiduAnalytics, installVueBaiduAnalytics } = createVueBaiduAnalytics()
+const { baiduAnalytics, registerBaiduAnalytics } = createVueBaiduAnalytics()
 
-export { baiduAnalytics, installVueBaiduAnalytics }
+export { baiduAnalytics, registerBaiduAnalytics }
