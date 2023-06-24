@@ -1,0 +1,17 @@
+{
+  "name": "vitepress-example",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vitepress dev",
+    "build": "vitepress build",
+    "preview": "vitepress preview"
+  },
+  "dependencies": {
+    "@web-analytics/vue": "workspace:^",
+    "shared": "workspace:^"
+  },
+  "devDependencies": {
+    "vitepress": "1.0.0-alpha.72"
+  }
+}
