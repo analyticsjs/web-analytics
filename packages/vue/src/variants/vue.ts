@@ -74,7 +74,7 @@ export function createVueCnzzAnalytics() {
 
   return {
     cnzzAnalytics,
-    installVueCnzzAnalytics: registerProvider({
+    registerCnzzAnalytics: registerProvider({
       analytics: cnzzAnalytics,
       platform: 'cnzz',
     }),
