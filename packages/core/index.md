@@ -26,7 +26,81 @@ pnpm add @web-analytics/core
 
 :::
 
-## Usage
+## Platforms
+
+The following analytics platforms are currently supported.
+
+- Type Declarations:
+
+```ts
+type Platform =
+  /**
+   * Baidu analysis platform
+   * @website https://tongji.baidu.com
+   * @docs https://tongji.baidu.com/open/api
+   */
+  | 'baidu'
+
+  /**
+   * U-Web(CNZZ) analysis platform
+   * @website https://www.umeng.com/web
+   * @docs https://developer.umeng.com/docs/67963/detail/74517
+   */
+  | 'cnzz'
+```
+
+:::tip
+Because the developer of the plugin lives in mainland China, so the current priority is to support the two major analytics platforms in China.
+:::
+
+## Initialization
+
+The plugin provides a method for creating an instance for each platform, and only needs to pass in the necessary options to complete the initialization work.
+
+### Type Declarations
+
+- Type Declaration of methods:
+
+:::code-group
+
+```ts [Baidu Analytics]
+declare function createBaiduAnalytics(
+  options: CreateAnalyticsInstanceOptions
+): Analytics<'baidu'>
+```
+
+```ts [CNZZ Analytics]
+declare function createCnzzAnalytics(
+  options: CreateAnalyticsInstanceOptions
+): Analytics<'cnzz'>
+```
+
+:::
+
+- Type Declaration of options:
+
+```ts
+interface CreateAnalyticsInstanceOptions {
+  /**
+   * Provides a replacement for the plugin ID for upper-level plugins
+   */
+  pluginId?: string
+
+  /**
+   * The website id from analytics platform
+   */
+  websiteId: string
+
+  /**
+   * Whether to enable debug mode
+   */
+  debug?: boolean
+}
+```
+
+The JS-SDK file of the analytics platform will be loaded during initialization.
+
+### Usage
 
 It is recommended to initialize in public tool files such as utils and export the initialized instance.
 
@@ -81,80 +155,6 @@ cnzzAnalytics.trackPageview({
 ```
 
 :::
-
-For more detailed instructions, continue reading the documentation.
-
-## Platforms
-
-The following analytics platforms are currently supported.
-
-- Type Declarations:
-
-```ts
-type Platform =
-  /**
-   * Baidu analysis platform
-   * @website https://tongji.baidu.com
-   * @docs https://tongji.baidu.com/open/api
-   */
-  | 'baidu'
-
-  /**
-   * U-Web(CNZZ) analysis platform
-   * @website https://www.umeng.com/web
-   * @docs https://developer.umeng.com/docs/67963/detail/74517
-   */
-  | 'cnzz'
-```
-
-:::tip
-Because the developer of the plugin lives in mainland China, so the current priority is to support the two major analytics platforms in China.
-:::
-
-## Initialization
-
-The plugin provides a method for creating an instance for each platform, and only needs to pass in the necessary options to complete the initialization work.
-
-- Type Declaration of methods:
-
-:::code-group
-
-```ts [Baidu Analytics]
-declare function createBaiduAnalytics(
-  options: CreateAnalyticsInstanceOptions
-): Analytics<'baidu'>
-```
-
-```ts [CNZZ Analytics]
-declare function createCnzzAnalytics(
-  options: CreateAnalyticsInstanceOptions
-): Analytics<'cnzz'>
-```
-
-:::
-
-- Type Declaration of options:
-
-```ts
-interface CreateAnalyticsInstanceOptions {
-  /**
-   * Provides a replacement for the plugin ID for upper-level plugins
-   */
-  pluginId?: string
-
-  /**
-   * The website id from analytics platform
-   */
-  websiteId: string
-
-  /**
-   * Whether to enable debug mode
-   */
-  debug?: boolean
-}
-```
-
-The JS-SDK file of the analytics platform will be loaded during initialization.
 
 ## Methods
 
