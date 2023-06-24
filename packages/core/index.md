@@ -156,6 +156,12 @@ cnzzAnalytics.trackPageview({
 
 :::
 
+### Examples
+
+These are the example projects based on the current usage notes.
+
+- [Vanilla Example](https://github.com/analyticsjs/web-analytics/tree/main/examples/vanilla)
+
 ## Methods
 
 On the initialized instance, some APIs are provided to call.
