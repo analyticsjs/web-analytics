@@ -1,6 +1,6 @@
 {
   "name": "@web-analytics/vue",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Website pageview analytics tool for Vue.js and multi-analytics-platform support.",
   "author": "chengpeiquan <chengpeiquan@chengpeiquan.com>",
   "license": "MIT",
