@@ -277,7 +277,12 @@ cnzzAnalytics.trackPageview({
 
 :::
 
-For more detailed instructions, continue reading the documentation.
+#### Examples
+
+These are the example projects based on the current usage notes.
+
+- [Vue 2.x Example](https://github.com/analyticsjs/web-analytics/tree/main/examples/vue2)
+- [Vue 3.x Example](https://github.com/analyticsjs/web-analytics/tree/main/examples/vue3)
 
 ### VitePress Projects
 
@@ -442,6 +447,12 @@ export default theme
 ```
 
 :::
+
+#### Examples
+
+These are the example projects based on the current usage notes.
+
+- [VitePress Example](https://github.com/analyticsjs/web-analytics/tree/main/examples/vitepress)
 
 ## Methods
 
