@@ -41,3 +41,6 @@ export interface RegisterProviderOptions<P extends Platform> {
   platform: Platform
   analytics: VueAnalytics<P>
 }
+
+export interface CreateVitePressAnalyticsInstanceOptions
+  extends Omit<VueAnalyticsConstructorOptions, 'platform'> {}
