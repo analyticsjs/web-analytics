@@ -1,7 +1,7 @@
 {
   "name": "@web-analytics/vue",
   "version": "0.2.0",
-  "description": "Website pageview analytics tool for Vue.js and multi-analytics-platform support.",
+  "description": "Website pageview analytics tool for Vue.js (Including VuePress , VitePress etc.) and multi-analytics-platform support.",
   "author": "chengpeiquan <chengpeiquan@chengpeiquan.com>",
   "license": "MIT",
   "homepage": "https://analytics.js.org/vue/",
@@ -26,6 +26,12 @@
   "keywords": [
     "utils",
     "analytics",
+    "spa analytics",
+    "ssr analytics",
+    "vuepress analytics",
+    "vitepress analytics",
+    "vue-baidu-analytics",
+    "vue-cnzz-analytics",
     "pageview"
   ],
   "dependencies": {
