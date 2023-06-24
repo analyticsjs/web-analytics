@@ -97,6 +97,19 @@ importers:
         specifier: ^4.2.1
         version: 4.2.1(@types/node@18.15.11)
 
+  examples/vitepress:
+    dependencies:
+      '@web-analytics/vue':
+        specifier: workspace:^
+        version: link:../../packages/vue
+      shared:
+        specifier: workspace:^
+        version: link:../shared
+    devDependencies:
+      vitepress:
+        specifier: 1.0.0-alpha.72
+        version: 1.0.0-alpha.72(@algolia/client-search@4.15.0)(@types/node@18.15.11)
+
   examples/vue3:
     dependencies:
       '@web-analytics/vue':
