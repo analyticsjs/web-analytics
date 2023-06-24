@@ -37,7 +37,7 @@ export interface CreateVueAnalyticsInstanceOptions
   router?: VueRouter
 }
 
-export interface InstallerProviderOptions<P extends Platform> {
+export interface RegisterProviderOptions<P extends Platform> {
   platform: Platform
   analytics: VueAnalytics<P>
 }

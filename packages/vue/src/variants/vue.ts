@@ -4,14 +4,14 @@ import { getMajorVersion, getGlobalProperty } from '../utils'
 import type { Platform } from '@web-analytics/core'
 import type {
   CreateVueAnalyticsInstanceOptions,
-  InstallerProviderOptions,
+  RegisterProviderOptions,
   VueInstance,
 } from '../types'
 
-function installerProvider<P extends Platform>({
+function registerProvider<P extends Platform>({
   analytics,
   platform,
-}: InstallerProviderOptions<P>) {
+}: RegisterProviderOptions<P>) {
   return {
     install: (
       app: VueInstance,
@@ -61,7 +61,7 @@ export function createVueBaiduAnalytics() {
 
   return {
     baiduAnalytics,
-    installVueBaiduAnalytics: installerProvider({
+    installVueBaiduAnalytics: registerProvider({
       analytics: baiduAnalytics,
       platform: 'baidu',
     }),
@@ -74,7 +74,7 @@ export function createVueCnzzAnalytics() {
 
   return {
     cnzzAnalytics,
-    installVueCnzzAnalytics: installerProvider({
+    installVueCnzzAnalytics: registerProvider({
       analytics: cnzzAnalytics,
       platform: 'cnzz',
     }),
