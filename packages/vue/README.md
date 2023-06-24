@@ -4,7 +4,7 @@
 
 # @web-analytics/vue
 
-Website pageview analytics tool for Vue.js and multi-analytics-platform support.
+Website pageview analytics tool for Vue.js (Including VuePress , VitePress etc.) and multi-analytics-platform support.
 
 ## Usage
 

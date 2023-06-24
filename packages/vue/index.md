@@ -1,6 +1,6 @@
 # @web-analytics/vue
 
-Website pageview analytics tool for [Vue.js](https://vuejs.org) and multi-analytics-platform support.
+Website pageview analytics tool for [Vue.js](https://vuejs.org) (Including [VuePress](https://vuepress.vuejs.org) , [VitePress](https://vitepress.dev) etc.) and multi-analytics-platform support.
 
 With [Vue Router](https://router.vuejs.org) , It helps you quickly collect pageviews on your website, including single-page web applications.
 
