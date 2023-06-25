@@ -59,7 +59,7 @@ export class Analytics<P extends Platform = Platform> extends BaseAnalytics {
         this.sdkInstance.push([
           SDK_ACTIONS.trackPageview,
           formatPageUrl(pageUrl),
-          formatFromUrl(fromUrl),
+          fromUrl ? formatFromUrl(fromUrl) : '',
         ])
         break
       }

@@ -1,3 +1,12 @@
+## [0.1.4](https://github.com/analyticsjs/web-analytics/compare/core@0.1.3...core@0.1.4) (2023-06-25)
+
+
+### Bug Fixes
+
+* **core:** fix debug log error for loadSdk ([757068c](https://github.com/analyticsjs/web-analytics/commit/757068c35cfea6c5fd56981e77dadd602e86aea9))
+
+
+
 ## [0.1.3](https://github.com/analyticsjs/web-analytics/compare/core@0.1.2...core@0.1.3) (2023-06-23)
 
 
