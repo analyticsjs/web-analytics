@@ -27,7 +27,7 @@ export function getDebugMessage({
 }: GetDebugMessageOptions) {
   const debugLogs: string[] = []
   switch (propertyKey) {
-    case 'init': {
+    case 'loadSdk': {
       debugLogs.push(`JS-SDK load done.`)
       break
     }
