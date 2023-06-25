@@ -4,6 +4,7 @@
 ### Bug Fixes
 
 * **core:** fix debug log error for loadSdk ([757068c](https://github.com/analyticsjs/web-analytics/commit/757068c35cfea6c5fd56981e77dadd602e86aea9))
+* **core:** if fromUrl is not specified, it defaults to an empty string ([dc050d1](https://github.com/analyticsjs/web-analytics/commit/dc050d1787755cf636129842f24323bf09eb036a))
 
 
 
