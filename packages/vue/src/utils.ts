@@ -1,3 +1,4 @@
+import { SUPPORTED_ANALYTICS_PLATFORMS } from '@web-analytics/core'
 import type { Platform } from '@web-analytics/core'
 import type { VueInstance } from './types'
 
@@ -12,17 +13,6 @@ export function getMajorVersion({ version }: VueInstance) {
 }
 
 export function getGlobalProperty(platform: Platform) {
-  switch (platform) {
-    case 'baidu': {
-      return 'baiduAnalytics'
-    }
-
-    case 'cnzz': {
-      return 'cnzzAnalytics'
-    }
-
-    default: {
-      return ''
-    }
-  }
+  if (!SUPPORTED_ANALYTICS_PLATFORMS.includes(platform)) return ''
+  return `$${platform}Analytics`
 }
