@@ -15,7 +15,7 @@ jobs:
       - name: install and build
         run: |
           npm i -g pnpm
-          pnpm install
+          pnpm install -w
           pnpm build:all
           pnpm build:docs
       - name: github-ci
