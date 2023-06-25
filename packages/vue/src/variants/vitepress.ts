@@ -31,15 +31,17 @@ function registerProvider<P extends Platform>({
 
     // Add a global property to Vue instance
     const property = getGlobalProperty(platform)
-    const version = getMajorVersion(app)
-    switch (version) {
-      case 2: {
-        app.prototype[property] = analytics
-        break
-      }
-      case 3: {
-        app.config.globalProperties[property] = analytics
-        break
+    if (property) {
+      const version = getMajorVersion(app)
+      switch (version) {
+        case 2: {
+          app.prototype[property] = analytics
+          break
+        }
+        case 3: {
+          app.config.globalProperties[property] = analytics
+          break
+        }
       }
     }
   }
