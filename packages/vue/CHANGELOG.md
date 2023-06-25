@@ -1,3 +1,18 @@
+## [0.2.1](https://github.com/analyticsjs/web-analytics/compare/vue@0.2.0...vue@0.2.1) (2023-06-25)
+
+
+### Bug Fixes
+
+* **vue:** global properties are prefixed with $ to align with Vue spec ([1ebb7a8](https://github.com/analyticsjs/web-analytics/commit/1ebb7a8126dc062d028fb248e5c3655d94bbc9dd))
+* **vue:** upgrade the core dependency to 0.1.4, to fix debug log errors (see core package's changelog) ([4aa9a3a](https://github.com/analyticsjs/web-analytics/commit/4aa9a3a1413d43576a248173a7e0d58d15723c1e))
+
+
+### Features
+
+* **vue:** if the platform is not supported, no global property will be generated ([2c0d4f6](https://github.com/analyticsjs/web-analytics/commit/2c0d4f68e8af639d8f8225bfad7715b31d18eab0))
+
+
+
 # 0.2.0 (2023-06-24)
 
 
