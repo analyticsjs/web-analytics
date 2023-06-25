@@ -41,7 +41,7 @@ export function getDebugMessage({
       const { pageUrl, fromUrl } = args[0] || {}
       debugLogs.push(`track pageview done.`)
       debugLogs.push(`pageUrl:      ${formatPageUrl(pageUrl)}`)
-      if (platform === 'cnzz') {
+      if (platform === 'cnzz' && fromUrl) {
         debugLogs.push(`fromUrl:      ${formatPageUrl(fromUrl)}`)
       }
       break
