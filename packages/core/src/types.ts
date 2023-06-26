@@ -44,11 +44,13 @@ export type EventValue = number
 export type EventNodeId = string
 
 export type BaiduSdkAction =
+  | [SdkActions.SetAutoPageview, boolean]
   | [SdkActions.SetAccount, WebsiteId]
   | [SdkActions.TrackPageview, PageUrl]
   | [SdkActions.TrackEvent, EventCategory, EventAction, EventLabel, EventValue]
 
 export type CnzzSdkAction =
+  | [SdkActions.SetAutoPageview, boolean]
   | [SdkActions.SetAccount, WebsiteId]
   | [SdkActions.TrackPageview, PageUrl, FromUrl]
   | [
