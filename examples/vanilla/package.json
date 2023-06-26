@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@web-analytics/core": "file:../../packages/core",
+    "@web-analytics/core": "file:../../packages/core/lib",
     "shared": "file:../shared"
   },
   "devDependencies": {

@@ -8,7 +8,7 @@
     "preview": "vitepress preview"
   },
   "dependencies": {
-    "@web-analytics/vue": "file:../../packages/vue",
+    "@web-analytics/vue": "file:../../packages/vue/lib",
     "shared": "file:../shared"
   },
   "devDependencies": {
