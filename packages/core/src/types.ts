@@ -1,4 +1,4 @@
-import { SUPPORTED_ANALYTICS_PLATFORMS, SDK_ACTIONS } from './constants'
+import { SUPPORTED_ANALYTICS_PLATFORMS, SdkActions } from './constants'
 
 export type Platform = (typeof SUPPORTED_ANALYTICS_PLATFORMS)[number]
 
@@ -44,15 +44,15 @@ export type EventValue = number
 export type EventNodeId = string
 
 export type BaiduSdkAction =
-  | [SDK_ACTIONS.setAccount, WebsiteId]
-  | [SDK_ACTIONS.trackPageview, PageUrl]
-  | [SDK_ACTIONS.trackEvent, EventCategory, EventAction, EventLabel, EventValue]
+  | [SdkActions.SetAccount, WebsiteId]
+  | [SdkActions.TrackPageview, PageUrl]
+  | [SdkActions.TrackEvent, EventCategory, EventAction, EventLabel, EventValue]
 
 export type CnzzSdkAction =
-  | [SDK_ACTIONS.setAccount, WebsiteId]
-  | [SDK_ACTIONS.trackPageview, PageUrl, FromUrl]
+  | [SdkActions.SetAccount, WebsiteId]
+  | [SdkActions.TrackPageview, PageUrl, FromUrl]
   | [
-      SDK_ACTIONS.trackEvent,
+      SdkActions.TrackEvent,
       EventCategory,
       EventAction,
       EventLabel,
