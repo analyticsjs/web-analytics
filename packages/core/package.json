@@ -26,6 +26,8 @@
   "keywords": [
     "utils",
     "analytics",
+    "baidu analytics",
+    "cnzz analytics",
     "pageview"
   ],
   "dependencies": {
