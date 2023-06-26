@@ -45,7 +45,6 @@ export class Analytics<P extends Platform = Platform> extends BaseAnalytics {
     if (!this.sdkInstance) return
 
     this.setAccount()
-    this.sdkInstance.push([SdkActions.SetAutoPageview, false])
 
     switch (this.platform) {
       case 'baidu': {

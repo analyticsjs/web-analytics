@@ -1,5 +1,9 @@
 import { isBrowser, loadRes } from '@bassist/utils'
-import { DEFAULT_PLUGIN_ID, SUPPORTED_ANALYTICS_PLATFORMS } from './constants'
+import {
+  DEFAULT_PLUGIN_ID,
+  SUPPORTED_ANALYTICS_PLATFORMS,
+  SdkActions,
+} from './constants'
 import { debug } from './decorators'
 import type {
   AnalyticsConstructorOptions,
@@ -65,6 +69,9 @@ export class BaseAnalytics {
   @debug
   private loadSdk() {
     if (!this.sdkInstance || !this.sdkUrl) return
+
+    // Turn off auto tracking
+    this.sdkInstance.push([SdkActions.SetAutoPageview, false])
 
     loadRes({
       type: 'js',
