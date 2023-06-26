@@ -16,8 +16,8 @@ export const SUPPORTED_ANALYTICS_PLATFORMS = <const>[
   'cnzz',
 ]
 
-export enum SDK_ACTIONS {
-  setAccount = '_setAccount',
-  trackPageview = '_trackPageview',
-  trackEvent = '_trackEvent',
+export enum SdkActions {
+  SetAccount = '_setAccount',
+  TrackPageview = '_trackPageview',
+  TrackEvent = '_trackEvent',
 }

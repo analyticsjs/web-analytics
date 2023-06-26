@@ -7,7 +7,7 @@ import {
   formatValue,
   formatNodeId,
 } from './utils'
-import { SDK_ACTIONS } from './constants'
+import { SdkActions } from './constants'
 import type {
   AnalyticsConstructorOptions,
   TrackPageviewOptions,
@@ -30,7 +30,7 @@ export class Analytics<P extends Platform = Platform> extends BaseAnalytics {
    */
   setAccount() {
     if (!this.sdkInstance) return
-    this.sdkInstance.push([SDK_ACTIONS.setAccount, this.websiteId])
+    this.sdkInstance.push([SdkActions.SetAccount, this.websiteId])
   }
 
   /**
@@ -49,7 +49,7 @@ export class Analytics<P extends Platform = Platform> extends BaseAnalytics {
     switch (this.platform) {
       case 'baidu': {
         this.sdkInstance.push([
-          SDK_ACTIONS.trackPageview,
+          SdkActions.TrackPageview,
           formatPageUrl(pageUrl),
         ])
         break
@@ -57,7 +57,7 @@ export class Analytics<P extends Platform = Platform> extends BaseAnalytics {
 
       case 'cnzz': {
         this.sdkInstance.push([
-          SDK_ACTIONS.trackPageview,
+          SdkActions.TrackPageview,
           formatPageUrl(pageUrl),
           fromUrl ? formatFromUrl(fromUrl) : '',
         ])
@@ -86,7 +86,7 @@ export class Analytics<P extends Platform = Platform> extends BaseAnalytics {
     switch (this.platform) {
       case 'baidu': {
         this.sdkInstance.push([
-          SDK_ACTIONS.trackEvent,
+          SdkActions.TrackEvent,
           category,
           action,
           formatLabel(label),
@@ -97,7 +97,7 @@ export class Analytics<P extends Platform = Platform> extends BaseAnalytics {
 
       case 'cnzz': {
         this.sdkInstance.push([
-          SDK_ACTIONS.trackEvent,
+          SdkActions.TrackEvent,
           category,
           action,
           formatLabel(label),
