@@ -1,3 +1,12 @@
+## [0.1.5](https://github.com/analyticsjs/web-analytics/compare/core@0.1.4...core@0.1.5) (2023-06-27)
+
+
+### Bug Fixes
+
+* **core:** disabled auto pageview to prevent duplicate tracking ([dc8ffc6](https://github.com/analyticsjs/web-analytics/commit/dc8ffc642d3ec91dbcb86c6300e21f5ed1e24afa))
+
+
+
 ## [0.1.4](https://github.com/analyticsjs/web-analytics/compare/core@0.1.3...core@0.1.4) (2023-06-25)
 
 
