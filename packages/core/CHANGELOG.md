@@ -6,6 +6,11 @@
 * **core:** disabled auto pageview to prevent duplicate tracking ([dc8ffc6](https://github.com/analyticsjs/web-analytics/commit/dc8ffc642d3ec91dbcb86c6300e21f5ed1e24afa))
 
 
+### Features
+
+* **core:** update the sdk url of cnzz ([be370dd](https://github.com/analyticsjs/web-analytics/commit/be370dd32d454f57efd46b6e8acd08d192ef48ab))
+
+
 
 ## [0.1.4](https://github.com/analyticsjs/web-analytics/compare/core@0.1.3...core@0.1.4) (2023-06-25)
 
