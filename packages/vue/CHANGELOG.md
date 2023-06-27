@@ -1,3 +1,12 @@
+## [0.2.2](https://github.com/analyticsjs/web-analytics/compare/vue@0.2.1...vue@0.2.2) (2023-06-27)
+
+
+### Bug Fixes
+
+* **vue:** upgrade the core dependency to 0.1.5, to prevent duplicate tracking (see core package's changelog) ([1a2db64](https://github.com/analyticsjs/web-analytics/commit/1a2db642cdb1b4afe713d6940796233076d1c332))
+
+
+
 ## [0.2.1](https://github.com/analyticsjs/web-analytics/compare/vue@0.2.0...vue@0.2.1) (2023-06-25)
 
 
