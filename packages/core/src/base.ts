@@ -50,7 +50,7 @@ export class BaseAnalytics {
       case 'cnzz': {
         // @ts-ignore
         this.sdkInstance = (window._czc || []) as SdkInstance<'cnzz'>
-        this.sdkUrl = `https://s9.cnzz.com/z_stat.php?id=${this.websiteId}&web_id=${this.websiteId}`
+        this.sdkUrl = `https://v1.cnzz.com/z_stat.php?id=${this.websiteId}&web_id=${this.websiteId}`
         break
       }
 
