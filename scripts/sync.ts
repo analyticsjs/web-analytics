@@ -17,10 +17,10 @@ function getDeps(rootPath: string) {
 
 function syncVersion(
   packageDeps: Record<string, string>,
-  monorepoDeps: Record<string, string>
+  monorepoDeps: Record<string, string>,
 ) {
   for (const key in packageDeps) {
-    if (hasKey(packageDeps, key)) {
+    if (hasKey(packageDeps, key) && monorepoDeps[key]) {
       packageDeps[key] = monorepoDeps[key]
     }
   }
