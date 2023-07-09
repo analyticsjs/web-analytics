@@ -31,6 +31,6 @@
     "pageview"
   ],
   "dependencies": {
-    "@bassist/utils": "^0.11.2"
+    "@bassist/utils": "^0.12.0"
   }
 }
