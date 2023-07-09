@@ -79,17 +79,14 @@ importers:
   packages/core:
     dependencies:
       '@bassist/utils':
-        specifier: ^0.11.2
-        version: 0.11.2
+        specifier: ^0.12.0
+        version: 0.12.0
 
   packages/vue:
     dependencies:
       '@bassist/utils':
-        specifier: ^0.11.2
-        version: 0.11.2
-      '@web-analytics/core':
-        specifier: workspace:^
-        version: link:../core
+        specifier: ^0.12.0
+        version: 0.12.0
 
 packages:
 
@@ -288,10 +285,6 @@ packages:
     dependencies:
       '@withtypes/fs-extra': 0.1.1
     dev: true
-
-  /@bassist/utils@0.11.2:
-    resolution: {integrity: sha512-qybnYCrh/7AYrch4r+sjgrMgUlUIXJ1xmJwnx486nOD9ishFDlel7p6n8uitH6cygNW4n+/AJm5nAKRVSq3yng==}
-    dev: false
 
   /@bassist/utils@0.12.0:
     resolution: {integrity: sha512-5OS0Nxd2YJym5YvbnIfZafeu4poEe7I3m+HEFsJbvGUF9ccT2T9kDLhMqXn16ta3RtDRS30ZqlaoDIOqL84/9g==}
