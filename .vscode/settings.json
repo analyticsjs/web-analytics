@@ -1,4 +1,11 @@
 {
-  "cSpell.words": ["baidu", "cnzz", "pageview", "pageviews", "vuepress"],
+  "cSpell.words": [
+    "baidu",
+    "cnzz",
+    "pageview",
+    "pageviews",
+    "vuepress",
+    "withtypes"
+  ],
   "editor.formatOnSave": true
 }
