@@ -35,6 +35,7 @@
     "pageview"
   ],
   "dependencies": {
-    "@bassist/utils": "^0.12.0"
+    "@bassist/utils": "^0.12.0",
+    "@web-analytics/core": "workspace:^"
   }
 }
