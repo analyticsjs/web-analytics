@@ -9,8 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@web-analytics/vue": "file:../../packages/vue/lib",
-    "shared": "file:../shared",
+    "@web-analytics/vue": "workspace:../../packages/vue",
+    "shared": "workspace:../shared",
     "vue": "^2.7.14",
     "vue-router": "^3.6.5"
   },

@@ -8,8 +8,8 @@
     "preview": "vitepress preview"
   },
   "dependencies": {
-    "@web-analytics/vue": "file:../../packages/vue/lib",
-    "shared": "file:../shared"
+    "@web-analytics/vue": "workspace:../../packages/vue",
+    "shared": "workspace:../shared"
   },
   "devDependencies": {
     "vitepress": "^1.0.0-beta.3"
