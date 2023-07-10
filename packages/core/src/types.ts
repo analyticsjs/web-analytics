@@ -59,7 +59,7 @@ export type CnzzSdkAction =
       EventAction,
       EventLabel,
       EventValue,
-      EventNodeId
+      EventNodeId,
     ]
 
 export type SdkAction<P extends Platform> = P extends 'cnzz'

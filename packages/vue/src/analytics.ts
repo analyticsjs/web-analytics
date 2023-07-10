@@ -58,7 +58,7 @@ export class VueAnalytics<P extends Platform = Platform> {
         default: {
           const platforms = SUPPORTED_ANALYTICS_PLATFORMS.join(', ')
           this.throwError(
-            `Unsupported platform options, only supported: ${platforms}.`
+            `Unsupported platform options, only supported: ${platforms}.`,
           )
           break
         }
