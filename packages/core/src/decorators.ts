@@ -7,7 +7,7 @@ import { getDebugMessage } from './utils'
 export function debug(
   target: any,
   propertyKey: string,
-  descriptor: PropertyDescriptor
+  descriptor: PropertyDescriptor,
 ) {
   const original = descriptor.value
 
@@ -42,7 +42,7 @@ export function debug(
 export function interceptor(
   target: any,
   propertyKey: string,
-  descriptor: PropertyDescriptor
+  descriptor: PropertyDescriptor,
 ) {
   const original = descriptor.value
 
@@ -57,7 +57,7 @@ export function interceptor(
       !action
     ) {
       ;(this as BaseAnalytics).throwError(
-        'Valid `category` and `action` are missing from the track event options.'
+        'Valid `category` and `action` are missing from the track event options.',
       )
       return
     }

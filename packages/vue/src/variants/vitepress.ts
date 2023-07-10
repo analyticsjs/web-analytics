@@ -14,7 +14,7 @@ function registerProvider<P extends Platform>({
 }: RegisterProviderOptions<P>) {
   return (
     app: VueInstance,
-    options: CreateVitePressAnalyticsInstanceOptions
+    options: CreateVitePressAnalyticsInstanceOptions,
   ) => {
     if (!isBrowser) return
 

@@ -15,7 +15,7 @@ function registerProvider<P extends Platform>({
   return {
     install: (
       app: VueInstance,
-      { router, ...others }: CreateVueAnalyticsInstanceOptions
+      { router, ...others }: CreateVueAnalyticsInstanceOptions,
     ) => {
       if (!isBrowser) return
 
