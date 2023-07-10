@@ -9,8 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@web-analytics/core": "file:../../packages/core/lib",
-    "shared": "file:../shared"
+    "@web-analytics/core": "workspace:../../packages/core",
+    "shared": "workspace:../shared"
   },
   "devDependencies": {
     "typescript": "^5.0.4",

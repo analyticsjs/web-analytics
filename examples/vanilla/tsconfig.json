@@ -1,4 +1,10 @@
 {
   "extends": "../../tsconfig.json",
-  "exclude": ["./dist"]
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx"],
+  "exclude": ["./dist"],
+  "compilerOptions": {
+    "skipLibCheck": true,
+    "noEmit": true,
+    "declaration": false
+  }
 }
