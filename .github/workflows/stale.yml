@@ -1,0 +1,24 @@
+name: 'Close stale issues'
+
+on:
+  schedule:
+    - cron: '0/6 * * * *'
+  workflow_dispatch:
+
+permissions:
+  issues: write
+  pull-requests: write
+
+concurrency:
+  group: lock
+
+jobs:
+  lock-inactive-issue:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/stale@v8
+        with:
+          repo-token: ${{ secrets.ACCESS_TOKEN }}
+          days-before-stale: 14
+          days-before-close: 1
+          close-issue-message: 'This issue was closed because it has been stalled for 15 days with no activity.'
